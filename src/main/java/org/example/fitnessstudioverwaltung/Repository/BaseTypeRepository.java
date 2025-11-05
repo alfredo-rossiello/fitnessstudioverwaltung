@@ -7,7 +7,7 @@ import org.example.fitnessstudioverwaltung.Interface.*;
 
 import java.util.List;
 
-public abstract class BaseTypeRepository {//import JpaBaseRepositoryInteface{
+public abstract class BaseTypeRepository implements JpaBaseRepositoryInterface{
 
     private EntityManager em;
 
@@ -38,7 +38,29 @@ public abstract class BaseTypeRepository {//import JpaBaseRepositoryInteface{
 
         switch (c.getSimpleName()) {
             case "Person": {
-                result = this.em.createQuery("from Person c", c).getResultList();
+                result = this.em.createQuery("from Person p", c).getResultList();
+            } case "Trainer": {
+                result = this.em.createQuery("from Trainer t", c).getResultList();
+            } case "Adresse": {
+                result = this.em.createQuery("from Adresse a", c).getResultList();
+            } case "Buchung": {
+                result = this.em.createQuery("from Buchung b", c).getResultList();
+            } case "Dienstplan": {
+                result = this.em.createQuery("from Dienstplan d", c).getResultList();
+            } case "Kontaktdaten": {
+                result = this.em.createQuery("from Kontaktdaten K", c).getResultList();
+            } case "Kurs": {
+                result = this.em.createQuery("from Kurs k", c).getResultList();
+            } case "Kursbuchung": {
+                result = this.em.createQuery("from Kursbuchung kb", c).getResultList();
+            } case "Mitglied": {
+                result = this.em.createQuery("from Mitglied m", c).getResultList();
+            } case "Mitgliedschaftsbuchung": {
+                result = this.em.createQuery("from Mitgliedschaftsbuchung mb", c).getResultList();
+            } case "Qualifikation": {
+                result = this.em.createQuery("from Qualifikation q", c).getResultList();
+            } case "Mitgliedschaft": {
+                result = this.em.createQuery("from Mitgliedschaft m", c).getResultList();
             }
         }
         return result;

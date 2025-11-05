@@ -1,13 +1,14 @@
 package org.example.fitnessstudioverwaltung.Repository;
 
+
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
+import org.example.fitnessstudioverwaltung.Model.Qualifikation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.example.fitnessstudioverwaltung.Model.*;
 
 @Repository
-public class JpaPersonRepository extends BaseTypeRepository {
+public class JpaQualifiktionRepository extends BaseTypeRepository{
 
     private EntityManager em;
 
@@ -16,13 +17,13 @@ public class JpaPersonRepository extends BaseTypeRepository {
         this.em = em;
     }
 
-    public JpaPersonRepository() {
+    public JpaQualifiktionRepository() {
         super();
     }
 
     @Transactional
-    public Person save (Person person) {
-        super.setEntityManager(this.em);
-        return (Person) super.save(person);
+    public Qualifikation save(Qualifikation q) {
+        super.setEntityManager(em);
+        return (Qualifikation) super.save(q);
     }
 }

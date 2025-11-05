@@ -5,20 +5,20 @@
     <title>register</title>
 </head>
 <body>
-    <h1>Registration site</h1>
-    <p>Please fill in this form to create an account.</p>
+    <h1>Registrations Seite</h1>
+    <p>Bitte füllen Sie die kommenden Felder aus um einen Account zu erstellen!</p>
 
-    <form action="#" method="post" th:action="@{/login}">
-        <label>Vorname:</label>
-        <input type="text" name="vorname" placeholder="Vorname">
+    <form action="#" method="post" th:action="@{/personalData}">
+        <label>Email:</label>
+        <input type="email" name="username" placeholder="Vorname">
 
-        <label>Nachname:</label>
-        <input type="text" name="nachname" placeholder="Nachname">
+        <label>Passwort:</label>
+        <input type="password" name="password" placeholder="Password">
 
-        <label>Geburtsdatum:</label>
-        <input type="date" name="geburtsdatum" placeholder="Geburtsdatum">
+        <label>Passwort bestätigen:</label>
+        <input type="password" name="password" placeholder="Password">
 
-        <button type="submit">Register</button>
+        <button type="submit">Weiter</button>
     </form>
 </body>
 </html>

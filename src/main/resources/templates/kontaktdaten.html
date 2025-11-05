@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kontaktdaten</title>
+</head>
+<body>
+    <h1>Eingabeformular</h1>
+    <p>Geben Sie hier bitte Ihre Kontaktdaten an!</p>
+    <form method="POST" action="#" th:action="@{/loginTemplate}">
+        <label>Telefonnummer:</label>
+        <input type="text" name="tel" placeholder="Telefonnummer"/>
+
+        <label>E-Mail:</label>
+        <input type="email" name="email" placeholder="E-Mail"/>
+    </form>
+</body>
+</html>
