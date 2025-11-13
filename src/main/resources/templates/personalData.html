@@ -10,27 +10,32 @@
 
     <form method="post" action="#" th:action="@{/eingabeformularKontaktdaten}">
         <label>Vorname:</label>
-        <input type="text" name="vorname" placeholder="Vorname">
+        <input type="text" name="vorname" placeholder="Vorname" required>
 
         <label>Nachname:</label>
-        <input type="text" name="nachname" placeholder="Nachname">
+        <input type="text" name="nachname" placeholder="Nachname" required>
 
         <label>Geburtsdatum:</label>
-        <input type="date" name="geb" placeholder="Geburtsdatum">
+        <input type="date" name="geb" placeholder="Geburtsdatum" required>
 
-        <label>Straße + Hausnummer</label>
-        <input type="text" name="adr" placeholder="Adresse">
+        <label>Straße:</label>
+        <input type="text" name="strasse" placeholder="Straße" required>
+
+        <label>Hausnummer:</label>
+        <input type="text" name="nummer" placeholder="Hausnummer" required>
 
         <label>Postleitzahl:</label>
-        <input type="text" name="plz" placeholder="Postleitzahl">
+        <input type="text" name="plz" placeholder="Postleitzahl" required>
 
         <label>Ort:</label>
-        <input type="text" name="ort" placeholder="Ort">
+        <input type="text" name="ort" placeholder="Ort" required>
 
         <label>Land:</label>
-        <input type="text" name="land" placeholder="Land">
+        <input type="text" name="land" placeholder="Land" required>
 
-        <button type="submit">weiter</button>
+        <div th:text="@{errorMessage}" ></div>
+
+        <button type="submit" th:disabled="@{disabled}">weiter</button>
     </form>
 </body>
 </html>

@@ -7,18 +7,19 @@
 <body>
     <h1>Registrations Seite</h1>
     <p>Bitte füllen Sie die kommenden Felder aus um einen Account zu erstellen!</p>
+    <p>Der Username muss deine email sein!</p>
 
     <form action="#" method="post" th:action="@{/personalData}">
-        <label>Email:</label>
-        <input type="email" name="username" placeholder="Vorname">
+        <label>Username:</label>
+        <input type="email" name="username" placeholder="Username" required>
 
         <label>Passwort:</label>
-        <input type="password" name="password" placeholder="Password">
+        <input type="password" name="password" placeholder="Password" required>
 
         <label>Passwort bestätigen:</label>
-        <input type="password" name="password" placeholder="Password">
+        <input type="password" name="password" placeholder="Password" required>
 
-        <button type="submit">Weiter</button>
+        <button type="submit">weiter</button>
     </form>
 </body>
 </html>

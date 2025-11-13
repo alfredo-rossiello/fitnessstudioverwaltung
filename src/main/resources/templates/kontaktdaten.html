@@ -9,10 +9,12 @@
     <p>Geben Sie hier bitte Ihre Kontaktdaten an!</p>
     <form method="POST" action="#" th:action="@{/loginTemplate}">
         <label>Telefonnummer:</label>
-        <input type="text" name="tel" placeholder="Telefonnummer"/>
+        <input type="text" name="tel" placeholder="Telefonnummer" required/>
 
         <label>E-Mail:</label>
-        <input type="email" name="email" placeholder="E-Mail"/>
+        <input type="email" name="email" placeholder="E-Mail" required/>
+
+        <button type="submit">Login</button>
     </form>
 </body>
 </html>

@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -15,12 +16,14 @@ public class Person extends BaseType implements Comparable<Person>{
 
     private String vorname;
     private String nachname;
-    private Date geburtsdatum;
+    private LocalDate geburtsdatum;
+    // private String username;
+    // private String password;
 
     public Person() {
     }
 
-    public Person(String vorname, String nachname) {//, Date geburtsdatum) {
+    public Person(String vorname, String nachname, LocalDate geburtsdatum) {
         this.vorname = vorname;
         this.nachname = nachname;
         this.geburtsdatum = geburtsdatum;
@@ -47,11 +50,11 @@ public class Person extends BaseType implements Comparable<Person>{
         this.nachname = nachname;
     }
 
-    public Date getGeburtsdatum() {
+    public LocalDate getGeburtsdatum() {
         return geburtsdatum;
     }
 
-    public void setGeburtsdatum(Date geburtsdatum) {
+    public void setGeburtsdatum(LocalDate geburtsdatum) {
         this.geburtsdatum = geburtsdatum;
     }
 

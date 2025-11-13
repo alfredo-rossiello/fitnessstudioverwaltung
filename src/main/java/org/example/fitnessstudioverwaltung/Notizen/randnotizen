@@ -1,9 +1,0 @@
-// für git hub: 'OneDrive - Private Berufsakademie für Aus- und Weiterbildung Passau gGmbH'/Dokumente/'Jahr 2'/Java/'Projekt Fitnessstudio'/fitnessstudioverwaltung
-
-- brauche ich für jede Klasse ein eigenes Ripository
-( was gibt es noch für angehensweisen, wie funktioniert
-das bei den Unterklassen )
-
-- wie stelle ich die fremdschlüssel bezeihungen dar?
-( jpa orm )
--> onetoone, onetomany
