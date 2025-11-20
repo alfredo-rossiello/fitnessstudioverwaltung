@@ -2,19 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>kontaktdaten</title>
+    <title>personalData</title>
+    <link rel="stylesheet" href="design.css">
 </head>
 <body>
-    <h1>Eingabeformular</h1>
-    <p>Geben Sie hier bitte Ihre Kontaktdaten an!</p>
-    <form method="POST" action="#" th:action="@{/loginTemplate}">
-        <label>Telefonnummer:</label>
-        <input type="text" name="tel" placeholder="Telefonnummer" required/>
+<h1>Persöhnliche Daten</h1>
+<p>Geben Sie hier Ihre persöhnlichen Daten an!</p>
 
-        <label>E-Mail:</label>
-        <input type="email" name="email" placeholder="E-Mail" required/>
+<form method="post" action="#" th:action="@{/loginTemplate}">
+    <label>Vorname:</label>
+    <input type="text" name="vorname" placeholder="Vorname" required>
 
-        <button type="submit">Login</button>
-    </form>
+    <label>Nachname:</label>
+    <input type="text" name="nachname" placeholder="Nachname" required>
+
+    <label>Geburtsdatum:</label>
+    <input type="date" name="geb" placeholder="Geburtsdatum" required>
+
+    <label>Straße:</label>
+    <input type="text" name="strasse" placeholder="Straße" required>
+
+    <label>Hausnummer:</label>
+    <input type="text" name="nummer" placeholder="Hausnummer" required>
+
+    <label>Postleitzahl:</label>
+    <input type="text" name="plz" placeholder="Postleitzahl" required>
+
+    <label>Ort:</label>
+    <input type="text" name="ort" placeholder="Ort" required>
+
+    <label>Land:</label>
+    <input type="text" name="land" placeholder="Land" required>
+
+    <button type="submit">Weiter</button>
+</form>
 </body>
 </html>

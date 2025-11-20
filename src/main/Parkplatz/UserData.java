@@ -1,52 +1,49 @@
-package org.example.fitnessstudioverwaltung.Domain;
+public class UserData {
 
-import org.example.fitnessstudioverwaltung.Model.*;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class User {
-    private String username;
-    private String password;
-
-    // Person
     private String vorname;
     private String nachname;
     private String geb;
-
-    // Adresse
     private String strasse;
     private String nummer;
     private String ort;
     private String land;
     private String plz;
-
-    // Kontaktdaten wenn person über 18
     private String email;
     private String tel;
 
-    public User(String username, String password){
-        this.username = username;
-        this.password = password;
+    /*
+    public UserData(String vorname, String nachname, String geb) {
+        this.vorname = vorname;
+        this.nachname = nachname;
+        this.geb = geb;
     }
 
-    public String getUsername() {
-        return username;
-    }
-    public void setEmail(String username) {
-        this.username = username;
+    public UserData(String email, String tel) {
+        this.email = email;
+        this.tel = tel;
     }
 
-    public String getPassword() {
-        return password;
+    public UserData(String strasse, String land, String ort, String nummer) {
+        this.strasse = strasse;
+        this.land = land;
+        this.ort = ort;
+        this.nummer = nummer;
+    } */
+
+    public String getStrasse() {
+        return strasse;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setStrasse(String strasse) {
+        this.strasse = strasse;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getNummer() {
+        return nummer;
+    }
+
+    public void setNummer(String nummer) {
+        this.nummer = nummer;
     }
 
     public String getVorname() {
@@ -73,36 +70,12 @@ public class User {
         this.geb = geb;
     }
 
-    public String getStrasse() {
-        return strasse;
-    }
-
-    public void setStrasse(String strasse) {
-        this.strasse = strasse;
-    }
-
-    public String getNummer() {
-        return nummer;
-    }
-
-    public void setNummer(String nummer) {
-        this.nummer = nummer;
-    }
-
     public String getOrt() {
         return ort;
     }
 
     public void setOrt(String ort) {
         this.ort = ort;
-    }
-
-    public String getLand() {
-        return land;
-    }
-
-    public void setLand(String land) {
-        this.land = land;
     }
 
     public String getPlz() {
@@ -113,8 +86,20 @@ public class User {
         this.plz = plz;
     }
 
+    public String getLand() {
+        return land;
+    }
+
+    public void setLand(String land) {
+        this.land = land;
+    }
+
     public String getEmail() {
         return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getTel() {

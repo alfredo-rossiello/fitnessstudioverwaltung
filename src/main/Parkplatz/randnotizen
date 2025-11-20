@@ -1,0 +1,52 @@
+// für git hub: 'OneDrive - Private Berufsakademie für Aus- und Weiterbildung Passau gGmbH'/Dokumente/'Jahr 2'/Java/'Projekt Fitnessstudio'/fitnessstudioverwaltung
+
+- brauche ich für jede Klasse ein eigenes Ripository
+( was gibt es noch für angehensweisen, wie funktioniert
+das bei den Unterklassen )
+
+- wie stelle ich die fremdschlüssel bezeihungen dar?
+( jpa orm )
+-> onetoone, onetomany
+
+- wie wird dann zwischen Trainern und Mitglieder unterschieden?
+(wie werden die beiden in den richtigen Tabellen gespeichert?)
+-> Admin weißt zu
+
+- enums können auch verwendet werden (Wochentage an denen gearbeitet werden kann/soll)
+
+- wenn die Person 18 ist muss sie die Kontaktdaten nicht ausfüllen,
+aber wenn sie nicht 18 ist dann schon
+-> option wo zuerst angegeben werden muss das die Person 18 ist
+und dann springt sie (nach dem) entweder in das eine Template oder halt in das andere
+Template wo es auch noch die Möglichkeit geben muss das die Kontaktdaten ausgefüllt werden
+
+Aufgaben:
+- übergebene Eingabe in datenbank speichern
+- Fremdschlüssel per orm definieren
+- zweites Template für Leute die unter 18 sind
+(felder müssen durch REQUIRED ausgefüllt sein)
+- in der Datenbank wird auch gespeichert wer Admin ist
+
+- Tage an denen ein Mitarbeiter arbeitet werden mit true belegt
+-> Uhrzeit von wann bis wann muss angegeben werden
+-> Überstunden sollen markiert werden
+-> Anzahl der Gearbeiteten Stunden werden gespeichert
+-> es soll ausgegeben werden ob der Mitarbeiter schon bezahlt wurde
+
+- Feld bei dem man sein Passwort wieder herstellen kann (bestätigungs email)
+-> Passwort wird durch einen Hash gespeichert
+
+- Eingegebene Daten werden wenn man zurückgeht immer noch in den
+Feldern angezeigt
+
+- fehlermeldung??? durch mehr als eine id bei person unterklassen
+
+- passwort überprüfung auf gültigkeit und auch die email auf gültigkeit überprüfen!
+
+
+IDEEN:
+- button erst freigeben wenn alle Felder ausgefüllt sind
+- erst weiter leiten wenn alle Daten richtig ein gegeben wurden
+- wenn zurück gegangen sind alle Daten immer noch in den Feldern
+- die Eingegebenen Daten werden erst wenn der Registrierungsprozess
+erfolgreich abgeschlossen wurde in der Datenbank gespeichert

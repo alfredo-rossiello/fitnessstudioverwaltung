@@ -1,19 +1,19 @@
 package org.example.fitnessstudioverwaltung.Helper;
 
-import jakarta.persistence.EntityManager;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.example.fitnessstudioverwaltung.Repository.BaseTypeRepository;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DB {
-    private EntityManager em;
+public class JpaRepository {
+
+    /*private EntityManager em;
 
     @Autowired
-    public DB(EntityManager em) {
+    public ReposioryClasses(EntityManager em) {
         this.em = em;
     }
 
     public EntityManager getEm() {
         return this.em;
-    }
+    }*/
 }

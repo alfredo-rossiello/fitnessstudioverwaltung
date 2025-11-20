@@ -17,6 +17,7 @@ public class Mitglied extends Person {
     public Mitglied() {
     }
 
+    // muss mir die altersüberprüfung noch anders überlegen
     public boolean isIstMinderjaehrig() {
         return istMinderjaehrig;
     }

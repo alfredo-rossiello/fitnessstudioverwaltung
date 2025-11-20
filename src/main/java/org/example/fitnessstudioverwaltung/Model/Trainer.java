@@ -14,7 +14,6 @@ public class Trainer extends Person{
 
     public Trainer() {
     }
-
     public long getId() {
         return id;
     }
