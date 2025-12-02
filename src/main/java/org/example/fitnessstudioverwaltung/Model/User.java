@@ -1,9 +1,6 @@
 package org.example.fitnessstudioverwaltung.Model;
 
 import jakarta.persistence.*;
-import org.example.fitnessstudioverwaltung.Repository.JpaUserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.example.fitnessstudioverwaltung.Repository.JpaUserRepository;
 
 @Entity
 public class User extends BaseType{
@@ -11,6 +8,10 @@ public class User extends BaseType{
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    private Person person;
 
     private String username;
     private String password;

@@ -1,9 +1,6 @@
 package org.example.fitnessstudioverwaltung.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.sql.Date;
@@ -13,6 +10,15 @@ public class Person extends BaseType implements Comparable<Person>{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @OneToOne(mappedBy="person")
+    private Mitglied mitglied;
+
+    @OneToOne(mappedBy="person")
+    private Trainer trainer;
+
+    @OneToOne(mappedBy="person")
+    private User user;
 
     private String vorname;
     private String nachname;

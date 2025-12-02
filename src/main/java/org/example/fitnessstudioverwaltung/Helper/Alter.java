@@ -21,4 +21,7 @@ public class Alter {
 
     // Methode die das aktuelle Alter zurück gibt und die Tage bis
     // die Person 18 wird!
+
+    /// Methode die überprüft ob es den Username
+    // in der Datenbank schon gibt
 }

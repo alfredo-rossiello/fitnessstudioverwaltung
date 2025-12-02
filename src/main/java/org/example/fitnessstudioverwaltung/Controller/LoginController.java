@@ -70,7 +70,7 @@ public class LoginController{
 
     @PostMapping("/loginTemplate")
     public String loginTemplate(@ModelAttribute Login login) {
-        jpaKontaktdatenRepository.save(new Kontaktdaten(login.getTel(), login.getEmail()));
+        Kontaktdaten k = jpaKontaktdatenRepository.save(new Kontaktdaten(login.getTel(), login.getEmail()));
 
         return "login";
     }
