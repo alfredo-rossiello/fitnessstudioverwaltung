@@ -7,7 +7,7 @@ import org.example.fitnessstudioverwaltung.Model.*;
 import org.example.fitnessstudioverwaltung.Repository.*;
 import org.springframework.web.bind.annotation.*;
 
-
+// kann jetzt vermutlich zwischen volljährig und nicht volljährig unterscheiden
 // model Objekte müssen auch noch mit einbezogen werden damit Fehlermeldungen angezeigt werden können
 @Controller
 public class LoginController{
@@ -50,28 +50,28 @@ public class LoginController{
         if (login.getPassword().equals(login.getPassword1())) {
             User user = jpaUserRepository.save(new User(login.getUsername(), login.getPassword()));
         }
+
         return "personaldata";
     }
 
-    @PostMapping("/formularKontaktdaten")
-    public String eingabeformularKontaktdaten(@ModelAttribute Login login){
+    @PostMapping("/eingabeformular")
+    public String eingabeformular(@ModelAttribute Login login){
         // die Objekte werden für das model benötigt
         Person person = jpaPersonRepository.save(new Person(login.getVorname(), login.getNachname(), String.join("-", String.valueOf(login.getJahr()), String.valueOf(login.getMonat()), String.valueOf(login.getTag()))));
         Adresse adresse = jpaAdressRepository.save(new Adresse(login.getStrasse(), login.getNummer(), login.getPlz(), login.getOrt(), login.getLand()));
 
-        return "kontaktdaten";
+        // überprüfung ob Person 18 ist
+        if (login.isAdult()) {
+            return "login";
+        } else {
+            return "kontaktdaten";
+        }
     }
 
     @PostMapping("/loginTemplate")
     public String loginTemplate(@ModelAttribute Login login) {
-        //Kontaktdaten kontaktdaten =
         jpaKontaktdatenRepository.save(new Kontaktdaten(login.getTel(), login.getEmail()));
 
-        return "login";
-    }
-
-    @GetMapping("/loginSheet")
-    public String loginSheet() {
         return "login";
     }
 }

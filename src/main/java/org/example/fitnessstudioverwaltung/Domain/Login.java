@@ -1,11 +1,6 @@
 package org.example.fitnessstudioverwaltung.Domain;
 
-import org.example.fitnessstudioverwaltung.Model.*;
-
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.List;
+import org.example.fitnessstudioverwaltung.Helper.Alter;
 
 public class Login {
     // User daten
@@ -153,14 +148,8 @@ public class Login {
         this.tel = tel;
     }
 
-    // überprüft alter
-    public boolean isAdult(int year, int month, int day) {
-        long tageDifferenz = ChronoUnit.DAYS.between(LocalDate.now(), LocalDate.of(year, month, day));
-
-        if ((tageDifferenz/365) >= 18) {
-            return true;
-        } else {
-            return false;
-        }
+    // Alters überprüfung
+    public boolean isAdult() {
+        return Alter.isAdult(getJahr(), getMonat(), getTag());
     }
 }

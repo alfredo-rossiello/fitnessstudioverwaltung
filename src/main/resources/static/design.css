@@ -28,6 +28,10 @@ input {
     display: block;
 }
 
+.geb {
+    display: inline-block;
+}
+
 button {
     margin-top: 10px;
 }
