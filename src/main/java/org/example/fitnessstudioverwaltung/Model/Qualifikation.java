@@ -1,11 +1,9 @@
 package org.example.fitnessstudioverwaltung.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Qualifikation extends BaseType{
@@ -15,6 +13,10 @@ public class Qualifikation extends BaseType{
 
     private String name;
     private Date gueltigBis;
+    
+    
+    @ManyToMany
+    private List<Trainer> trainer;
 
     public Qualifikation() {
     }

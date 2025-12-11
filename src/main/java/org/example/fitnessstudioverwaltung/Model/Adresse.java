@@ -2,6 +2,8 @@ package org.example.fitnessstudioverwaltung.Model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Adresse extends  BaseType {
     @Id
@@ -17,6 +19,9 @@ public class Adresse extends  BaseType {
 
     @Column(name = "laenderkuerzel")
     private String land;
+
+    @OneToMany(mappedBy="adresse", cascade=CascadeType.ALL)
+    private List<Person> person;
 
     public Adresse(String strasse, String nummer, String plz, String ort, String land) {
         this.strasse = strasse;

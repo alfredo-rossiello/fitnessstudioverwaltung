@@ -10,7 +10,7 @@ public class User extends BaseType{
     private long id;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    @JoinColumn(name = "person_id")
     private Person person;
 
     private String username;

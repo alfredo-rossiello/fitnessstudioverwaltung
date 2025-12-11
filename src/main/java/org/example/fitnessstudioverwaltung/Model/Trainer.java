@@ -2,6 +2,8 @@ package org.example.fitnessstudioverwaltung.Model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 //soll von Person erben
 @Entity
 public class Trainer {
@@ -10,11 +12,15 @@ public class Trainer {
     private long id;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    @JoinColumn(name = "person_id")
     private Person person;
+
+    @ManyToMany
+    private List<Qualifikation> qualifikation;
 
     public Trainer() {
     }
+
     public long getId() {
         return id;
     }

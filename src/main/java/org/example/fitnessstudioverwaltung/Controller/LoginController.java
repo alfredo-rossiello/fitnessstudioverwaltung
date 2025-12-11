@@ -7,6 +7,7 @@ import org.example.fitnessstudioverwaltung.Model.*;
 import org.example.fitnessstudioverwaltung.Repository.*;
 import org.springframework.web.bind.annotation.*;
 
+// wie schaffe ich es das die richtige Controller methode aufgerufen wird?
 // kann jetzt vermutlich zwischen volljährig und nicht volljährig unterscheiden
 // model Objekte müssen auch noch mit einbezogen werden damit Fehlermeldungen angezeigt werden können
 @Controller
@@ -46,7 +47,7 @@ public class LoginController{
     @PostMapping("/personalData")
     public String persoehnlicheDaten(@ModelAttribute Login login) {
 
-        // hashen des Passworts
+        // hashen des Passworts nicht vergessen
         if (login.getPassword().equals(login.getPassword1())) {
             User user = jpaUserRepository.save(new User(login.getUsername(), login.getPassword()));
         }
@@ -54,11 +55,13 @@ public class LoginController{
         return "personaldata";
     }
 
+    // übergeben von urls über thymleaf
     @PostMapping("/eingabeformular")
     public String eingabeformular(@ModelAttribute Login login){
         // die Objekte werden für das model benötigt
-        Person person = jpaPersonRepository.save(new Person(login.getVorname(), login.getNachname(), String.join("-", String.valueOf(login.getJahr()), String.valueOf(login.getMonat()), String.valueOf(login.getTag()))));
         Adresse adresse = jpaAdressRepository.save(new Adresse(login.getStrasse(), login.getNummer(), login.getPlz(), login.getOrt(), login.getLand()));
+        Person person = jpaPersonRepository.save(new Person(login.getVorname(), login.getNachname(), String.join("-", String.valueOf(login.getJahr()), String.valueOf(login.getMonat()), String.valueOf(login.getTag()))));
+
 
         // überprüfung ob Person 18 ist
         if (login.isAdult()) {
@@ -68,10 +71,18 @@ public class LoginController{
         }
     }
 
+    @GetMapping("/loginSheet")
+    public String loginSheet(){
+        return "login";
+    }
+
     @PostMapping("/loginTemplate")
     public String loginTemplate(@ModelAttribute Login login) {
-        Kontaktdaten k = jpaKontaktdatenRepository.save(new Kontaktdaten(login.getTel(), login.getEmail()));
-
         return "login";
+    }
+
+    @PostMapping("/eingeloggtTemplate")
+    public String eingeloggt() {
+        return "eingeloggt";
     }
 }

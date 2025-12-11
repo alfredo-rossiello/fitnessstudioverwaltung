@@ -2,23 +2,26 @@ package org.example.fitnessstudioverwaltung.Model;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
-import java.sql.Date;
+// cascade Typ definieren
 
 @Entity
-public class Person extends BaseType implements Comparable<Person>{
+public class Person extends BaseType {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @OneToOne(mappedBy="person")
+    @OneToOne(mappedBy="person", cascade=CascadeType.ALL)
     private Mitglied mitglied;
 
-    @OneToOne(mappedBy="person")
+    @OneToOne(mappedBy="person", cascade=CascadeType.ALL)
     private Trainer trainer;
 
-    @OneToOne(mappedBy="person")
+    @OneToOne(mappedBy="person", cascade=CascadeType.ALL)
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "adress_id")
+    private Adresse adresse;
 
     private String vorname;
     private String nachname;
@@ -63,8 +66,4 @@ public class Person extends BaseType implements Comparable<Person>{
         this.geburtsdatum = geburtsdatum;
     }
 
-    @Override
-    public int compareTo(Person o) {
-        return this.geburtsdatum.compareTo(o.getGeburtsdatum());
-    }
 }
