@@ -16,7 +16,8 @@ public class Person extends BaseType {
     @OneToOne(mappedBy="person", cascade=CascadeType.ALL)
     private Trainer trainer;
 
-    @OneToOne(mappedBy="person", cascade=CascadeType.ALL)
+    @OneToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne
@@ -27,14 +28,16 @@ public class Person extends BaseType {
     private String nachname;
     // Date um in der Datenbank den Datentyp Date zu haben oder mit Localdate
     private String geburtsdatum;
+    private String tel;
 
     public Person() {
     }
 
-    public Person(String vorname, String nachname, String geburtsdatum) {
+    public Person(String vorname, String nachname, String geburtsdatum, String tel) {
         this.vorname = vorname;
         this.nachname = nachname;
         this.geburtsdatum = geburtsdatum;
+        this.tel = tel;
     }
 
     @Override
@@ -66,4 +69,11 @@ public class Person extends BaseType {
         this.geburtsdatum = geburtsdatum;
     }
 
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
 }

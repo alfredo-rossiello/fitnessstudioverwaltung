@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.example.fitnessstudioverwaltung.Model.*;
 import org.example.fitnessstudioverwaltung.Repository.*;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 // wie schaffe ich es das die richtige Controller methode aufgerufen wird?
@@ -48,6 +49,8 @@ public class LoginController{
     public String persoehnlicheDaten(@ModelAttribute Login login) {
 
         // hashen des Passworts nicht vergessen
+        // ändern des Passwortes anbieten
+        // email per zusenden von email überprüfen
         if (login.getPassword().equals(login.getPassword1())) {
             User user = jpaUserRepository.save(new User(login.getUsername(), login.getPassword()));
         }
@@ -57,30 +60,35 @@ public class LoginController{
 
     // übergeben von urls über thymleaf
     @PostMapping("/eingabeformular")
-    public String eingabeformular(@ModelAttribute Login login){
+    public String eingabeformular(@ModelAttribute Login login, Model model){
         // die Objekte werden für das model benötigt
         Adresse adresse = jpaAdressRepository.save(new Adresse(login.getStrasse(), login.getNummer(), login.getPlz(), login.getOrt(), login.getLand()));
-        Person person = jpaPersonRepository.save(new Person(login.getVorname(), login.getNachname(), String.join("-", String.valueOf(login.getJahr()), String.valueOf(login.getMonat()), String.valueOf(login.getTag()))));
-
+        Person person = jpaPersonRepository.save(new Person(login.getVorname(), login.getNachname(), String.join("-", String.valueOf(login.getJahr()), String.valueOf(login.getMonat()), String.valueOf(login.getTag())), login.getTel()));
 
         // überprüfung ob Person 18 ist
         if (login.isAdult()) {
             return "login";
         } else {
-            return "kontaktdaten";
+            // fehlermeldung wenn noch nicht 16
+            model.addAttribute("error",
+                    "Du bist noch nicht 16! Deine Eltern müssen sich für dich anmelden");
+            return "personaldata";
         }
     }
 
-    @GetMapping("/loginSheet")
-    public String loginSheet(){
-        return "login";
-    }
-
+    // hier erwartet es Werte
     @PostMapping("/loginTemplate")
     public String loginTemplate(@ModelAttribute Login login) {
         return "login";
     }
 
+    // ohne das es Werte erwartet
+    @GetMapping("/loginSheet")
+    public String loginSheet(){
+        return "login";
+    }
+
+    // bei erfolgreichem einloggen
     @PostMapping("/eingeloggtTemplate")
     public String eingeloggt() {
         return "eingeloggt";

@@ -9,8 +9,7 @@ public class User extends BaseType{
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "person_id")
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Person person;
 
     private String username;
