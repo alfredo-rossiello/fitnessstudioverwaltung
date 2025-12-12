@@ -76,4 +76,36 @@ public class Person extends BaseType {
     public void setTel(String tel) {
         this.tel = tel;
     }
+
+    public Mitglied getMitglied() {
+        return mitglied;
+    }
+
+    public void setMitglied(Mitglied mitglied) {
+        this.mitglied = mitglied;
+    }
+
+    public Trainer getTrainer() {
+        return trainer;
+    }
+
+    public void setTrainer(Trainer trainer) {
+        this.trainer = trainer;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Adresse getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(Adresse adresse) {
+        this.adresse = adresse;
+    }
 }

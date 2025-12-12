@@ -45,4 +45,12 @@ public class Qualifikation extends BaseType{
     public void setGueltigBis(Date gueltigBis) {
         this.gueltigBis = gueltigBis;
     }
+
+    public List<Trainer> getTrainer() {
+        return trainer;
+    }
+
+    public void setTrainer(List<Trainer> trainer) {
+        this.trainer = trainer;
+    }
 }

@@ -8,6 +8,7 @@ import org.example.fitnessstudioverwaltung.Repository.*;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+// fitnessstudioverwaltung
 // wie schaffe ich es das die richtige Controller methode aufgerufen wird?
 // kann jetzt vermutlich zwischen volljährig und nicht volljährig unterscheiden
 // model Objekte müssen auch noch mit einbezogen werden damit Fehlermeldungen angezeigt werden können
@@ -17,7 +18,7 @@ public class LoginController{
     private JpaUserRepository jpaUserRepository;
     private JpaPersonRepository jpaPersonRepository;
     private JpaAdressRepository jpaAdressRepository;
-    private JpaKontaktdatenRepository jpaKontaktdatenRepository;
+    //private JpaKontaktdatenRepository jpaKontaktdatenRepository;
 
     @Autowired
     public void setJpaUserRepository(JpaUserRepository jpaUserRepository) {
@@ -34,10 +35,10 @@ public class LoginController{
         this.jpaAdressRepository = jpaAdressRepository;
     }
 
-    @Autowired
+    /*@Autowired
     public void setJpaKontaktdatenRepository(JpaKontaktdatenRepository jpaKontaktdatenRepository) {
         this.jpaKontaktdatenRepository = jpaKontaktdatenRepository;
-    }
+    }*/
 
     @GetMapping("/registerTemplate")
     public String registerTemplate(){
@@ -70,6 +71,8 @@ public class LoginController{
             return "login";
         } else {
             // fehlermeldung wenn noch nicht 16
+            // mitarbeiterin muss mit Muttizettel bestätigung Daten eintragen
+            // oder Eltern tragen daten ein
             model.addAttribute("error",
                     "Du bist noch nicht 16! Deine Eltern müssen sich für dich anmelden");
             return "personaldata";

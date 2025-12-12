@@ -1,4 +1,4 @@
-package org.example.fitnessstudioverwaltung.Repository;
+/*package org.example.fitnessstudioverwaltung.Repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -25,4 +25,4 @@ public class JpaKontaktdatenRepository extends BaseTypeRepository{
         return (Kontaktdaten) super.save(k);
     }
 
-}
+}*/

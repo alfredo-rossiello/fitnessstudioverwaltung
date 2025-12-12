@@ -24,4 +24,20 @@ public class Trainer {
     public long getId() {
         return id;
     }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public List<Qualifikation> getQualifikation() {
+        return qualifikation;
+    }
+
+    public void setQualifikation(List<Qualifikation> qualifikation) {
+        this.qualifikation = qualifikation;
+    }
 }

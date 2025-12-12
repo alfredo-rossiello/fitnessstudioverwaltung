@@ -41,4 +41,12 @@ public class User extends BaseType{
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
 }

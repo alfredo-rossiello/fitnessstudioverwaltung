@@ -9,6 +9,8 @@
     <h1>Persöhnliche Daten</h1>
     <p>Geben Sie hier Ihre persöhnlichen Daten an!</p>
 
+    <!-- möchte required heraus nehmen und es durch header ersetzen-->
+
     <form method="post" action="#" th:action="@{/eingabeformular}">
         <label>Vorname:</label>
         <input type="text" name="vorname" placeholder="Vorname" required>
@@ -20,6 +22,9 @@
         <input class="geb" type="number" name="tag" placeholder="Tag" required>
         <input class="geb" type="number" name="monat" placeholder="Monat" required>
         <input class="geb" type="number" name="jahr" placeholder="Jahr" required>
+
+        <label>Tel:</label>
+        <input type="text" name="tel" placeholder="Telephonnummer" required>
 
         <label>Straße:</label>
         <input type="text" name="strasse" placeholder="Straße" required>
@@ -37,6 +42,9 @@
         <input type="text" name="land" placeholder="Land" required>
 
         <button type="submit">Weiter</button>
+
+        <br>
+        <div th:text="@{error}"></div>
     </form>
 </body>
 </html>
