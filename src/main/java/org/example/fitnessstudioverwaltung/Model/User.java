@@ -1,6 +1,8 @@
 package org.example.fitnessstudioverwaltung.Model;
 
 import jakarta.persistence.*;
+import org.example.fitnessstudioverwaltung.Repository.JpaUserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 public class User extends BaseType{
@@ -22,6 +24,7 @@ public class User extends BaseType{
         this.password = password;
     }
 
+    @Override
     public long getId() {
         return id;
     }
@@ -40,13 +43,5 @@ public class User extends BaseType{
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
     }
 }

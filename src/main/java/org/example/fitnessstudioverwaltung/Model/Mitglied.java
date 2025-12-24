@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 //soll von Person erben
 @Entity
-public class Mitglied {
+public class Mitglied extends BaseType{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -27,15 +27,8 @@ public class Mitglied {
         this.istMinderjaehrig = istMinderjaehrig;
     }
 
+    @Override
     public long getId() {
         return id;
-    }
-
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
     }
 }

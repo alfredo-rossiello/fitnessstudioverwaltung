@@ -13,8 +13,7 @@ public class Qualifikation extends BaseType{
 
     private String name;
     private Date gueltigBis;
-    
-    
+
     @ManyToMany
     private List<Trainer> trainer;
 
@@ -26,6 +25,7 @@ public class Qualifikation extends BaseType{
         this.gueltigBis = gueltigBis;
     }
 
+    @Override
     public long getId() {
         return id;
     }
@@ -44,13 +44,5 @@ public class Qualifikation extends BaseType{
 
     public void setGueltigBis(Date gueltigBis) {
         this.gueltigBis = gueltigBis;
-    }
-
-    public List<Trainer> getTrainer() {
-        return trainer;
-    }
-
-    public void setTrainer(List<Trainer> trainer) {
-        this.trainer = trainer;
     }
 }

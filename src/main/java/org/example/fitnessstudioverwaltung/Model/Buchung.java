@@ -9,6 +9,7 @@ import java.util.Date;
 
 @Entity
 public class Buchung extends BaseType {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -24,6 +25,7 @@ public class Buchung extends BaseType {
         this.bis = bis;
     }
 
+    @Override
     public long getId() {
         return id;
     }

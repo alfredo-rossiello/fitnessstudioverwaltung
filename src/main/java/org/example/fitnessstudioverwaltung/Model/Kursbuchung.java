@@ -10,7 +10,7 @@ import java.util.Date;
 // vielleicht wird diese weggelassen!
 // soll von Buchung erben
 @Entity
-public class Kursbuchung extends Buchung{
+public class Kursbuchung extends BaseType{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -18,11 +18,8 @@ public class Kursbuchung extends Buchung{
     public Kursbuchung() {
     }
 
+    @Override
     public long getId() {
         return id;
-    }
-
-    public Kursbuchung(Date von, Date bis) {
-        super(von, bis);
     }
 }

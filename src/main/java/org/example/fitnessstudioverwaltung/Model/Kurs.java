@@ -30,6 +30,7 @@ public class Kurs extends BaseType{
         this.anzahlIntervall = anzahlIntervall;
     }
 
+    @Override
     public long getId() {
         return Id;
     }

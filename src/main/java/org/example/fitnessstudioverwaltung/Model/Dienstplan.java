@@ -32,6 +32,7 @@ public class Dienstplan extends BaseType{
         Sonntag = sonntag;
     }
 
+    @Override
     public long getId() {
         return Id;
     }

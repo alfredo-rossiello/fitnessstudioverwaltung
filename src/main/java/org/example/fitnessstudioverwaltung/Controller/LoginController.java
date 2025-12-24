@@ -9,8 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 // fitnessstudioverwaltung
-// wie schaffe ich es das die richtige Controller methode aufgerufen wird?
-// kann jetzt vermutlich zwischen volljährig und nicht volljährig unterscheiden
+// wie wird zwischen volljährig und nicht volljährig unterschieden
+//  -> (DB eintrag?, Methode die dein alter ausrechnet und dir anhand dessen deine Zugriffsrechte erteilt?, ...)
 // model Objekte müssen auch noch mit einbezogen werden damit Fehlermeldungen angezeigt werden können
 @Controller
 public class LoginController{
@@ -18,7 +18,6 @@ public class LoginController{
     private JpaUserRepository jpaUserRepository;
     private JpaPersonRepository jpaPersonRepository;
     private JpaAdressRepository jpaAdressRepository;
-    //private JpaKontaktdatenRepository jpaKontaktdatenRepository;
 
     @Autowired
     public void setJpaUserRepository(JpaUserRepository jpaUserRepository) {
@@ -35,11 +34,6 @@ public class LoginController{
         this.jpaAdressRepository = jpaAdressRepository;
     }
 
-    /*@Autowired
-    public void setJpaKontaktdatenRepository(JpaKontaktdatenRepository jpaKontaktdatenRepository) {
-        this.jpaKontaktdatenRepository = jpaKontaktdatenRepository;
-    }*/
-
     @GetMapping("/registerTemplate")
     public String registerTemplate(){
         return "register";
@@ -49,9 +43,8 @@ public class LoginController{
     @PostMapping("/personalData")
     public String persoehnlicheDaten(@ModelAttribute Login login) {
 
-        // hashen des Passworts nicht vergessen
-        // ändern des Passwortes anbieten
-        // email per zusenden von email überprüfen
+        // passwort hashen, mit salt
+        // bestätigungs email an email adresse!
         if (login.getPassword().equals(login.getPassword1())) {
             User user = jpaUserRepository.save(new User(login.getUsername(), login.getPassword()));
         }
@@ -85,6 +78,8 @@ public class LoginController{
         return "login";
     }
 
+
+    /// -> wo genau brauche ich diese Methode? wo wird diese dann aufgerufen?
     // ohne das es Werte erwartet
     @GetMapping("/loginSheet")
     public String loginSheet(){

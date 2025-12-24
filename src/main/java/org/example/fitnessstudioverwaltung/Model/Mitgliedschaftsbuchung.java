@@ -7,7 +7,8 @@ import jakarta.persistence.Id;
 
 //soll von Buchung erben
 @Entity
-public class Mitgliedschaftsbuchung extends Buchung {
+public class Mitgliedschaftsbuchung extends BaseType {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -15,6 +16,7 @@ public class Mitgliedschaftsbuchung extends Buchung {
     public Mitgliedschaftsbuchung() {
     }
 
+    @Override
     public long getId() {
         return id;
     }
