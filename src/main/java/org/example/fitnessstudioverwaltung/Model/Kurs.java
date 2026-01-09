@@ -1,15 +1,18 @@
 package org.example.fitnessstudioverwaltung.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Kurs extends BaseType{
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long Id;
+
+    @ManyToMany //(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    private List<Qualifikation> qualifikation;
 
     private String titel;
     private String inhalt;
@@ -81,5 +84,13 @@ public class Kurs extends BaseType{
 
     public void setAnzahlIntervall(int anzahlIntervall) {
         this.anzahlIntervall = anzahlIntervall;
+    }
+
+    public List<Qualifikation> getQualifikation() {
+        return qualifikation;
+    }
+
+    public void setQualifikation(List<Qualifikation> qualifikation) {
+        this.qualifikation = qualifikation;
     }
 }

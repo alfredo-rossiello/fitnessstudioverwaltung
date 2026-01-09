@@ -20,6 +20,13 @@ aber wenn sie nicht 18 ist dann schon
 und dann springt sie (nach dem) entweder in das eine Template oder halt in das andere
 Template wo es auch noch die Möglichkeit geben muss das die Kontaktdaten ausgefüllt werden
 
+- die was ist wenn die Person einen Vormund angibt die wo anders wohnt?
+-> die Person muss noch nicht einmal einen festen Wohnsitz haben
+
+- cookies?
+
+- die Person muss ihre Daten nicht noch einmal eingeben!
+
 Aufgaben:
 - übergebene Eingabe in datenbank speichern
 - Fremdschlüssel per orm definieren
@@ -43,6 +50,7 @@ Feldern angezeigt
 
 - passwort überprüfung auf gültigkeit und auch die email auf gültigkeit überprüfen!
 
+- überprüfung ob es den Benutzernamen schon gibt
 
 IDEEN:
 - button erst freigeben wenn alle Felder ausgefüllt sind
@@ -50,3 +58,11 @@ IDEEN:
 - wenn zurück gegangen sind alle Daten immer noch in den Feldern
 - die Eingegebenen Daten werden erst wenn der Registrierungsprozess
 erfolgreich abgeschlossen wurde in der Datenbank gespeichert
+- festgelegte Zeiträume (Mitgliedschaft ist monatlich kündbar, läuft x Monate, usw)
+
+
+KURSE:
+- kann der Kurs nur ganz gebucht werden oder auch bestimmte Tage
+- kostet der Kurs etwas, für wen kostet er etwas oder kann man bestimmte Kurse auch kostenlos
+mitmachen wenn man eine gewisse Mitgliedschaft hat? (gold, platin, ...)
+- können diese auch von nicht mitgliedern belegt werden oder sind diese nur für Mitglieder?

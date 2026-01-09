@@ -15,7 +15,7 @@ public class Trainer extends BaseType{
     @JoinColumn(name = "person_id")
     private Person person;
 
-    @ManyToMany
+    @ManyToMany // (cascade = CascadeType.ALL)
     private List<Qualifikation> qualifikation;
 
     public Trainer() {
@@ -24,5 +24,21 @@ public class Trainer extends BaseType{
     @Override
     public long getId() {
         return id;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public List<Qualifikation> getQualifikation() {
+        return qualifikation;
+    }
+
+    public void setQualifikation(List<Qualifikation> qualifikation) {
+        this.qualifikation = qualifikation;
     }
 }

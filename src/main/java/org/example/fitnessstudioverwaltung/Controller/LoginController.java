@@ -66,23 +66,14 @@ public class LoginController{
             // fehlermeldung wenn noch nicht 16
             // mitarbeiterin muss mit Muttizettel bestätigung Daten eintragen
             // oder Eltern tragen daten ein
-            model.addAttribute("error",
-                    "Du bist noch nicht 16! Deine Eltern müssen sich für dich anmelden");
             return "personaldata";
         }
     }
 
     // hier erwartet es Werte
-    @PostMapping("/loginTemplate")
+    //@PostMapping("/loginTemplate")
+    @RequestMapping(path = "/loginTemplate", method = {RequestMethod.GET, RequestMethod.POST})
     public String loginTemplate(@ModelAttribute Login login) {
-        return "login";
-    }
-
-
-    /// -> wo genau brauche ich diese Methode? wo wird diese dann aufgerufen?
-    // ohne das es Werte erwartet
-    @GetMapping("/loginSheet")
-    public String loginSheet(){
         return "login";
     }
 

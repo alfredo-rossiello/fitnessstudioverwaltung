@@ -47,8 +47,6 @@ public abstract class BaseTypeRepository implements JpaBaseRepositoryInterface{
                 result = this.em.createQuery("from Buchung b", c).getResultList();
             } case "Dienstplan": {
                 result = this.em.createQuery("from Dienstplan d", c).getResultList();
-            } case "Kontaktdaten": {
-                result = this.em.createQuery("from Kontaktdaten K", c).getResultList();
             } case "Kurs": {
                 result = this.em.createQuery("from Kurs k", c).getResultList();
             } case "Kursbuchung": {

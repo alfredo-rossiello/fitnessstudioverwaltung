@@ -1,0 +1,34 @@
+ - if else thymleaf
+
+ - login daten überprüfen
+
+- alters überprüfung
+ -> in Domain klasse
+ -> in Datenbank zum alter überprüfen und neu hineinschreiben
+ (wenn alter manuel hineingeschrieben werden soll)
+
+ - Fremdschlüssel definieren
+
+ - username überprüfung  (unique)
+ - passwort hashen
+
+- alter aus datenbank überprüfen und dann wenn voljährig automatisch
+auf true setzen
+
+- kontaktdaten müssen angegeben werden:
+- bei minderjährigen der Vormund
+- bei erwachsenen optional eine ansprech person
+- neu klasse für minderjährige?
+
+- überprüfung des Datums, überprüfung des Passwortes,
+überprüfung des username
+
+- der username darf nicht zweimal in der datenbank vorkommen
+-> neuer primär schlüssel!
+
+- datum soll anders übergeben werden
+
+- Minderjährige brauchen ein gewisses Alter um sich registrieren zu können
+
+- einträge aus zwischen Tabelle einer many to many beziehung löschen mit crud
+  operationen

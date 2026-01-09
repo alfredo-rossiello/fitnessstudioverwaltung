@@ -31,4 +31,12 @@ public class Mitglied extends BaseType{
     public long getId() {
         return id;
     }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
 }

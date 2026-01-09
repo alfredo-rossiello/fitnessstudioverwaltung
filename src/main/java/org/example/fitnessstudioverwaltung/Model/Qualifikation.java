@@ -14,8 +14,11 @@ public class Qualifikation extends BaseType{
     private String name;
     private Date gueltigBis;
 
-    @ManyToMany
+    @ManyToMany (mappedBy = "qualifikation")
     private List<Trainer> trainer;
+
+    @ManyToMany(mappedBy = "qualifikation")
+    private List<Kurs> kurs;
 
     public Qualifikation() {
     }
@@ -44,5 +47,21 @@ public class Qualifikation extends BaseType{
 
     public void setGueltigBis(Date gueltigBis) {
         this.gueltigBis = gueltigBis;
+    }
+
+    public List<Trainer> getTrainer() {
+        return trainer;
+    }
+
+    public void setTrainer(List<Trainer> trainer) {
+        this.trainer = trainer;
+    }
+
+    public List<Kurs> getKurs() {
+        return kurs;
+    }
+
+    public void setKurs(List<Kurs> kurs) {
+        this.kurs = kurs;
     }
 }

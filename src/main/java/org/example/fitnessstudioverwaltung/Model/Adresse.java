@@ -11,7 +11,7 @@ public class Adresse extends  BaseType {
     private long Id;
     private String strasse;
 
-    @Column(name = "Nummer_Adresszusatz")
+    @Column(name = "adresszusatz")
     private String nummer;
 
     private String plz;
@@ -77,5 +77,13 @@ public class Adresse extends  BaseType {
 
     public void setLand(String land) {
         this.land = land;
+    }
+
+    public List<Person> getPerson() {
+        return person;
+    }
+
+    public void setPerson(List<Person> person) {
+        this.person = person;
     }
 }
