@@ -20,7 +20,7 @@ public class Adresse extends  BaseType {
     @Column(name = "laenderkuerzel")
     private String land;
 
-    @OneToMany(mappedBy="adresse", cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "adresse")
     private List<Person> person;
 
     public Adresse(String strasse, String nummer, String plz, String ort, String land) {

@@ -3,10 +3,6 @@ package org.example.fitnessstudioverwaltung.Domain;
 import org.example.fitnessstudioverwaltung.Helper.Alter;
 
 public class Login {
-    // User daten
-    private String username;
-    private String password;
-    private String password1;
 
     // Person
     private String vorname;
@@ -17,6 +13,8 @@ public class Login {
     private int monat;
     private int tag;
 
+    private String tel;
+
     // Adresse
     private String strasse;
     private String nummer;
@@ -24,37 +22,6 @@ public class Login {
     private String land;
     private String plz;
 
-    // Kontaktdaten wenn person über 18
-    private String email;
-    private String tel;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setEmail(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getPassword1() {
-        return password1;
-    }
-
-    public void setPassword1(String password1) {
-        this.password1 = password1;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
     public String getVorname() {
         return vorname;
@@ -136,10 +103,6 @@ public class Login {
         this.plz = plz;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
     public String getTel() {
         return tel;
     }
@@ -152,4 +115,24 @@ public class Login {
     public boolean isAdult() {
         return Alter.isAdult(getJahr(), getMonat(), getTag());
     }
+
+    // user daten in liste speichern
+    /*public static List<String> setUserData(String username, String password) {
+        List<String> user = new ArrayList<>();
+
+        user.add(username);
+        user.add(password);
+
+        return user;
+    }
+
+    // Werte auslesen
+    public List<String> getUserData() {
+        return ;
+    }
+
+    // daten aus gespeicherter Liste Löschen nach dem alle Daten in DB gespeichert wurden
+    public void setUserDataToNull(List<String> userData) {
+        userData.clear();
+    }*/
 }

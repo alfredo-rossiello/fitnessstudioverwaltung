@@ -16,11 +16,11 @@ public class Person extends BaseType {
     private Trainer trainer;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "adress_id")
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "adress_id", nullable=false)
     private Adresse adresse;
 
     private String vorname;

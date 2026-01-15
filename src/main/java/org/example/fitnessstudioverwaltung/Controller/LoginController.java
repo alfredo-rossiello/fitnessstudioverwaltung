@@ -8,16 +8,18 @@ import org.example.fitnessstudioverwaltung.Repository.*;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 // fitnessstudioverwaltung
 // wie wird zwischen volljährig und nicht volljährig unterschieden
 //  -> (DB eintrag?, Methode die dein alter ausrechnet und dir anhand dessen deine Zugriffsrechte erteilt?, ...)
 // model Objekte müssen auch noch mit einbezogen werden damit Fehlermeldungen angezeigt werden können
+// der user wird noch nicht in der DB gespeichert!
 @Controller
 public class LoginController{
 
     private JpaUserRepository jpaUserRepository;
     private JpaPersonRepository jpaPersonRepository;
-    private JpaAdressRepository jpaAdressRepository;
 
     @Autowired
     public void setJpaUserRepository(JpaUserRepository jpaUserRepository) {
@@ -29,35 +31,38 @@ public class LoginController{
         this.jpaPersonRepository = jpaPersonRepository;
     }
 
-    @Autowired
-    public void setJpaAdressRepository(JpaAdressRepository jpaAdressRepository) {
-        this.jpaAdressRepository = jpaAdressRepository;
-    }
-
     @GetMapping("/registerTemplate")
     public String registerTemplate(){
         return "register";
     }
 
-
     @PostMapping("/personalData")
-    public String persoehnlicheDaten(@ModelAttribute Login login) {
+    public String persoehnlicheDaten(@ModelAttribute UserData user, Model model) {
 
         // passwort hashen, mit salt
         // bestätigungs email an email adresse!
-        if (login.getPassword().equals(login.getPassword1())) {
-            User user = jpaUserRepository.save(new User(login.getUsername(), login.getPassword()));
-        }
+        //User user = new User(login.getUserData().get(0), login.getUserData().get(1));
+        model.addAttribute("user", new User(user.getUsername(), user.getPassword()));
 
         return "personaldata";
     }
 
     // übergeben von urls über thymleaf
     @PostMapping("/eingabeformular")
-    public String eingabeformular(@ModelAttribute Login login, Model model){
-        // die Objekte werden für das model benötigt
-        Adresse adresse = jpaAdressRepository.save(new Adresse(login.getStrasse(), login.getNummer(), login.getPlz(), login.getOrt(), login.getLand()));
-        Person person = jpaPersonRepository.save(new Person(login.getVorname(), login.getNachname(), String.join("-", String.valueOf(login.getJahr()), String.valueOf(login.getMonat()), String.valueOf(login.getTag())), login.getTel()));
+    public String eingabeformular(@ModelAttribute Login login, @ModelAttribute("user") UserData userData, Model model){
+
+        // jpaAdressRepository.save(new Adresse(login.getStrasse(), login.getNummer(), login.getPlz(), login.getOrt(), login.getLand()));
+        Adresse adresse = new Adresse(login.getStrasse(), login.getNummer(), login.getPlz(), login.getOrt(), login.getLand());
+        Person person = new Person(login.getVorname(), login.getNachname(), String.join("-", String.valueOf(login.getJahr()), String.valueOf(login.getMonat()), String.valueOf(login.getTag())), login.getTel());
+        User user = new User(userData.getUsername(), userData.getPassword());
+
+        // Fremdschlüssel wird gesetzt, jetzt weiß db welcher Wert eingetragen werden soll
+        person.setAdresse(adresse);
+        person.setUser(user);
+
+        // Daten werden in DB gespeichert
+        jpaUserRepository.save(user);
+        jpaPersonRepository.save(person);
 
         // überprüfung ob Person 18 ist
         if (login.isAdult()) {
