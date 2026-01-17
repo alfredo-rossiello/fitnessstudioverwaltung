@@ -1,5 +1,6 @@
 package org.example.fitnessstudioverwaltung.Controller;
 
+import jakarta.servlet.http.HttpSession;
 import org.example.fitnessstudioverwaltung.Domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,24 +38,27 @@ public class LoginController{
     }
 
     @PostMapping("/personalData")
-    public String persoehnlicheDaten(@ModelAttribute UserData user, Model model) {
+    public String persoehnlicheDaten(@ModelAttribute UserData user, HttpSession session) {
 
         // passwort hashen, mit salt
         // bestätigungs email an email adresse!
-        //User user = new User(login.getUserData().get(0), login.getUserData().get(1));
-        model.addAttribute("user", new User(user.getUsername(), user.getPassword()));
+        if (!user.getPassword().isEmpty() && !user.getUsername().isEmpty()){
+            session.setAttribute("user", user.getUsername());
+            session.setAttribute("password", user.getPassword());
+        } else {
+            // zurück leiten
+        }
 
         return "personaldata";
     }
 
-    // übergeben von urls über thymleaf
     @PostMapping("/eingabeformular")
-    public String eingabeformular(@ModelAttribute Login login, @ModelAttribute("user") UserData userData, Model model){
+    public String eingabeformular(@ModelAttribute Login login, HttpSession session){
 
         // jpaAdressRepository.save(new Adresse(login.getStrasse(), login.getNummer(), login.getPlz(), login.getOrt(), login.getLand()));
         Adresse adresse = new Adresse(login.getStrasse(), login.getNummer(), login.getPlz(), login.getOrt(), login.getLand());
         Person person = new Person(login.getVorname(), login.getNachname(), String.join("-", String.valueOf(login.getJahr()), String.valueOf(login.getMonat()), String.valueOf(login.getTag())), login.getTel());
-        User user = new User(userData.getUsername(), userData.getPassword());
+        User user = new User((String) session.getAttribute("user"), (String) session.getAttribute("password"));
 
         // Fremdschlüssel wird gesetzt, jetzt weiß db welcher Wert eingetragen werden soll
         person.setAdresse(adresse);
@@ -64,6 +68,9 @@ public class LoginController{
         jpaUserRepository.save(user);
         jpaPersonRepository.save(person);
 
+        // gesetzte sessions löschen
+        session.removeAttribute("user");
+        session.removeAttribute("password");
         // überprüfung ob Person 18 ist
         if (login.isAdult()) {
             return "login";

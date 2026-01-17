@@ -1,5 +1,10 @@
 package org.example.fitnessstudioverwaltung.Domain;
 
+import jakarta.servlet.http.HttpSession;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserData {
 
     private String username;
