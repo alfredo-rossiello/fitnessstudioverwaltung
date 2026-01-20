@@ -47,6 +47,7 @@ public class LoginController{
             session.setAttribute("password", user.getPassword());
         } else {
             // zurück leiten
+            return "register";
         }
 
         return "personaldata";
