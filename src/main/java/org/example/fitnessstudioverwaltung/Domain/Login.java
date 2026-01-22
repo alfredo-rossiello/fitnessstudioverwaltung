@@ -115,24 +115,4 @@ public class Login {
     public boolean isAdult() {
         return Alter.isAdult(getJahr(), getMonat(), getTag());
     }
-
-    // user daten in liste speichern
-    /*public static List<String> setUserData(String username, String password) {
-        List<String> user = new ArrayList<>();
-
-        user.add(username);
-        user.add(password);
-
-        return user;
-    }
-
-    // Werte auslesen
-    public List<String> getUserData() {
-        return ;
-    }
-
-    // daten aus gespeicherter Liste Löschen nach dem alle Daten in DB gespeichert wurden
-    public void setUserDataToNull(List<String> userData) {
-        userData.clear();
-    }*/
 }

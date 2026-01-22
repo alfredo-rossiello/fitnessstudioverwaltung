@@ -14,8 +14,8 @@ import java.util.List;
 // fitnessstudioverwaltung
 // wie wird zwischen volljährig und nicht volljährig unterschieden
 //  -> (DB eintrag?, Methode die dein alter ausrechnet und dir anhand dessen deine Zugriffsrechte erteilt?, ...)
-// model Objekte müssen auch noch mit einbezogen werden damit Fehlermeldungen angezeigt werden können
-// der user wird noch nicht in der DB gespeichert!
+//
+
 @Controller
 public class LoginController{
 
@@ -73,6 +73,7 @@ public class LoginController{
         session.removeAttribute("user");
         session.removeAttribute("password");
         // überprüfung ob Person 18 ist
+
         if (login.isAdult()) {
             return "login";
         } else {
