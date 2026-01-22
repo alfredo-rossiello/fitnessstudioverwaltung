@@ -38,7 +38,7 @@ public class LoginController{
     }
 
     @PostMapping("/personalData")
-    public String persoehnlicheDaten(@ModelAttribute UserData user, HttpSession session) {
+    public String persoehnlicheDaten(@ModelAttribute Login user, HttpSession session) {
 
         // passwort hashen, mit salt
         // bestätigungs email an email adresse!
@@ -72,8 +72,9 @@ public class LoginController{
         // gesetzte sessions löschen
         session.removeAttribute("user");
         session.removeAttribute("password");
-        // überprüfung ob Person 18 ist
 
+        // überprüfung ob Person 18 ist
+        /// IST DAS NOTWENDIG?
         if (login.isAdult()) {
             return "login";
         } else {
