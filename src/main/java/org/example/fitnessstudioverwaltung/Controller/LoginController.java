@@ -9,12 +9,10 @@ import org.example.fitnessstudioverwaltung.Repository.*;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 // fitnessstudioverwaltung
 // wie wird zwischen volljährig und nicht volljährig unterschieden
 //  -> (DB eintrag?, Methode die dein alter ausrechnet und dir anhand dessen deine Zugriffsrechte erteilt?, ...)
-//
+// Werte sollen zurück in inputfelder geschrieben werden
 
 @Controller
 public class LoginController{
@@ -34,10 +32,11 @@ public class LoginController{
 
     @GetMapping("/registerTemplate")
     public String registerTemplate(){
-        return "register";
+        return "neueTemplates/register";
     }
 
-    @PostMapping("/personalData")
+    // wird vielleicht nicht gebraucht
+    /*@PostMapping("/personalData")
     public String persoehnlicheDaten(@ModelAttribute Login user, HttpSession session) {
 
         // passwort hashen, mit salt
@@ -47,54 +46,50 @@ public class LoginController{
             session.setAttribute("password", user.getPassword());
         } else {
             // zurück leiten
-            return "register";
+            return "neueTemplates/register";
         }
 
         return "personaldata";
-    }
+    }*/
 
-    @PostMapping("/eingabeformular")
-    public String eingabeformular(@ModelAttribute Login login, HttpSession session){
+    @RequestMapping(path = "/eingabeTemplate", method = {RequestMethod.GET, RequestMethod.POST})
+    public String eingabeformular(@ModelAttribute Login login, Model model){
 
-        // jpaAdressRepository.save(new Adresse(login.getStrasse(), login.getNummer(), login.getPlz(), login.getOrt(), login.getLand()));
-        Adresse adresse = new Adresse(login.getStrasse(), login.getNummer(), login.getPlz(), login.getOrt(), login.getLand());
-        Person person = new Person(login.getVorname(), login.getNachname(), String.join("-", String.valueOf(login.getJahr()), String.valueOf(login.getMonat()), String.valueOf(login.getTag())), login.getTel());
-        User user = new User((String) session.getAttribute("user"), (String) session.getAttribute("password"));
+        // überprüfung ob werte gesetzt/übergeben wurden ist noch nicht ausgereift!!!
+        if (login.getUsername() != null && login.getPassword() != null) {
+            Adresse adresse = new Adresse(login.getStrasse(), login.getNummer(), login.getPlz(), login.getOrt(), login.getLand());
+            Person person = new Person(login.getVorname(), login.getNachname(), login.getGebDatum(), login.getTel());
+            User user = new User(login.getUsername(), login.getPassword());
 
-        // Fremdschlüssel wird gesetzt, jetzt weiß db welcher Wert eingetragen werden soll
-        person.setAdresse(adresse);
-        person.setUser(user);
+            // Fremdschlüssel wird gesetzt, jetzt weiß db welcher Wert eingetragen werden soll
+            person.setAdresse(adresse);
+            person.setUser(user);
 
-        // Daten werden in DB gespeichert
-        jpaUserRepository.save(user);
-        jpaPersonRepository.save(person);
+            // Daten werden in DB gespeichert
+            jpaUserRepository.save(user);
+            // jpaPersonRepository.save(person);
 
-        // gesetzte sessions löschen
-        session.removeAttribute("user");
-        session.removeAttribute("password");
+            // gesetzte sessions löschen
+            // session.removeAttribute("user");
+            // session.removeAttribute("password");
 
-        // überprüfung ob Person 18 ist
-        /// IST DAS NOTWENDIG?
-        if (login.isAdult()) {
-            return "login";
-        } else {
-            // fehlermeldung wenn noch nicht 16
-            // mitarbeiterin muss mit Muttizettel bestätigung Daten eintragen
-            // oder Eltern tragen daten ein
-            return "personaldata";
+            // überprüfung ob Person 18 ist
+            if (!login.isAdult()) {
+                // wenn noch nicht 18 dann fehlermeldung über das Model
+                model.addAttribute("issue", "");
+                return "neueTemplates/register";
+            }
         }
+
+        // neue Methode die eingegebene Werte auch verarbeitet
+        return "neueTemplates/login";
     }
 
-    // hier erwartet es Werte
-    //@PostMapping("/loginTemplate")
-    @RequestMapping(path = "/loginTemplate", method = {RequestMethod.GET, RequestMethod.POST})
-    public String loginTemplate(@ModelAttribute Login login) {
-        return "login";
-    }
-
-    // bei erfolgreichem einloggen
+    // bei erfolgreichem einloggen wird zu Profil weitergeleitet!
     @PostMapping("/eingeloggtTemplate")
     public String eingeloggt() {
+        // ist noch nicht das Profil, soll aber zum Profil weiter leiten
+        // überprüfung ob der benutzername übereinstimmt -> sql query, oder abfangen von Fehlermeldung
         return "eingeloggt";
     }
 }

@@ -1,0 +1,140 @@
+/* Allgemeine Body-Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #121212;
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* Login Überschrift */
+.ueberschrift {
+    text-align: center;
+    margin: 40px 0 20px 0;
+}
+
+.ueberschrift h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ffffff; /* POWER weiß */
+    margin: 0;
+}
+
+.ueberschrift p {
+    font-size: 18px;
+    color: #ccc;
+    margin: 8px 0 0 0;
+}
+
+/* Login Formular Container */
+.benutzereingaben {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 25px 30px;
+    background: rgba(0,0,0,0.85);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Form */
+.benutzereingaben form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+.benutzereingaben label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+/* Inputs */
+.benutzereingaben input {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 18px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #000;
+    background: #fff;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.benutzereingaben input:focus {
+    border-color: #e63946;
+    box-shadow: 0 0 5px #e63946;
+    outline: none;
+}
+
+/* Button */
+.benutzereingaben button {
+    width: 100%;
+    padding: 12px 0;
+    background: #e63946;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+.benutzereingaben button:hover {
+    background: #ff4d5a;
+}
+
+/* Links unterhalb des Formulars */
+.register_link {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.register_link a {
+    color: #e63946;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.register_link a:hover {
+    color: #ff4d5a;
+}
+
+/* Responsive Anpassung */
+@media (max-width: 600px) {
+    .ueberschrift h2 {
+        font-size: 28px;
+    }
+
+    .ueberschrift p {
+        font-size: 16px;
+    }
+
+    .benutzereingaben {
+        padding: 20px;
+        margin: 15px;
+    }
+
+    .benutzereingaben input {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+
+    .benutzereingaben button {
+        font-size: 14px;
+        padding: 10px 0;
+    }
+}

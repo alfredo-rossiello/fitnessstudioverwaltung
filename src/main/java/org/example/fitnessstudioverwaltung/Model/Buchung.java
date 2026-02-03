@@ -14,13 +14,13 @@ public class Buchung extends BaseType {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private Date von;
-    private Date bis;
+    private String von;
+    private String bis;
 
     public Buchung() {
     }
 
-    public Buchung(Date von, Date bis) {
+    public Buchung(String von, String bis) {
         this.von = von;
         this.bis = bis;
     }
@@ -30,19 +30,19 @@ public class Buchung extends BaseType {
         return id;
     }
 
-    public Date getVon() {
+    public String getVon() {
         return von;
     }
 
-    public void setVon(Date von) {
+    public void setVon(String von) {
         this.von = von;
     }
 
-    public Date getBis() {
+    public String getBis() {
         return bis;
     }
 
-    public void setBis(Date bis) {
+    public void setBis(String bis) {
         this.bis = bis;
     }
 

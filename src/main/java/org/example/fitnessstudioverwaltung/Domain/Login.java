@@ -1,20 +1,20 @@
 package org.example.fitnessstudioverwaltung.Domain;
 
 import org.example.fitnessstudioverwaltung.Helper.Alter;
+import org.example.fitnessstudioverwaltung.Helper.PwdHash;
 
 public class Login {
     // User
     private String username;
     private String password;
+    private String password1;
 
     // Person
     private String vorname;
     private String nachname;
 
     // könnte auch als Date übergeben werden
-    private int jahr;
-    private int monat;
-    private int tag;
+    private String gebDatum;
 
     private String tel;
 
@@ -41,28 +41,12 @@ public class Login {
         this.nachname = nachname;
     }
 
-    public int getMonat() {
-        return monat;
+    public String getGebDatum() {
+        return gebDatum;
     }
 
-    public void setMonat(int monat) {
-        this.monat = monat;
-    }
-
-    public int getTag() {
-        return tag;
-    }
-
-    public void setTag(int tag) {
-        this.tag = tag;
-    }
-
-    public int getJahr() {
-        return jahr;
-    }
-
-    public void setJahr(int jahr) {
-        this.jahr = jahr;
+    public void setGebDatum(String gebDatum) {
+        this.gebDatum = gebDatum;
     }
 
     public String getStrasse() {
@@ -122,15 +106,23 @@ public class Login {
     }
 
     public String getPassword() {
-        return password;
+        return PwdHash.hashPassword(password);
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
+    public String getPassword1() {
+        return PwdHash.hashPassword(password1);
+    }
+
+    public void setPassword1(String password1) {
+        this.password1 = password1;
+    }
+
     // Alters überprüfung
     public boolean isAdult() {
-        return Alter.isAdult(getJahr(), getMonat(), getTag());
+        return Alter.isAdult(getGebDatum());
     }
 }

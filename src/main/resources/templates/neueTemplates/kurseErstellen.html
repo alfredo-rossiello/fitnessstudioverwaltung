@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurse erstellen</title>
+</head>
+<body>
+    <div>
+        <section>
+            <form method="post" action="#" th:action="@{/kurserstellen}">
+
+            <label>Titel</label> <br>
+            <input type="text" id="KursErstellen_Titel" placeholder="" required> <br><br><!--String treffender Name-->
+
+            <label>Inhalt</label> <br>
+            <input type="text" id="KursErstellen_Inhalt" placeholder=""  required> <br><br> <!--String langer Text-->
+
+            <label>Teilnehmeranzahl</label> <br>
+            <input type="number" id="KursErstellen_Teilnehmeranzahl placeholder="" min="1" required> <br><br> <!--Int-->
+
+            <label>Datum</label>
+            <input type="date" id="KursErstellen_Datum" placeholder="" min="1" required> <br><br>
+
+            <label>Uhrzeit Start</label>
+            <input type="time" id="KursErstellen_UhrzeitStart" placeholder="" required> <br><br>
+
+            <label>Uhrzeit Ende</label>
+            <input type="time" id="KursErstellen_UhrzeitEnde" placeholder="" required> <br><br>
+
+            <!-- den button disabeln und erst enablen wenn alle felder ausgefüllt sind-->
+            <button type="submit">Kurs hinzufügen</button>
+            </form>
+        </section>
+    </div>
+
+    
+</body>
+</html>

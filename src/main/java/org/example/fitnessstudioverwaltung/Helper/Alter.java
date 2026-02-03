@@ -7,7 +7,13 @@ import java.time.Period;
 public class Alter {
 
     // überprüft alter
-    public static boolean isAdult(int jahr, int monat, int tag) {
+    public static boolean isAdult(String gebDatum) {
+        String[] arr = gebDatum.split("-");
+
+        int jahr = Integer.parseInt(arr[0]);
+        int monat = Integer.parseInt(arr[1]);
+        int tag = Integer.parseInt(arr[2]);
+
         LocalDate now = LocalDate.now();
         LocalDate birthday = LocalDate.of(jahr, monat, tag);
 

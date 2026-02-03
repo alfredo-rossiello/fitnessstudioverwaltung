@@ -1,0 +1,812 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    color: #fff;
+    background-color: #111;
+}
+
+/* ///////// HEADER BEREICH ///////// */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #e63946;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #e63946;
+}
+
+/* Button*/
+.mitglied_werden {
+    background: #e63946;
+    padding: 10px 18px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.mitglied_werden:hover {
+    background: #ff4d5a;
+}
+
+.anmelden{
+    background: #e63946;
+    padding: 10px 18px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold; 
+}
+/**/
+
+/* Für die Login und Mitglied "Button"*/
+.Login_Mitglied_Container {
+    display: flex;
+    gap: 15px; /* 15 Pixel Abstand zwischen den Buttons */
+}
+
+.anmelden:hover,
+.mitglied_werden:hover {
+    background: #ff4d5a;
+}
+
+
+
+/* Hero */
+.hero {
+    height: 100vh;
+    background: url("../images/background_startseite_2.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    background: rgba(0,0,0,0.6);
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+
+
+
+/*///////////////////////////////////*/
+/* ///////// MAIN BEREICH ///////// */
+.container {
+    background: #111;
+}
+
+/* ///////// ÜBER UNS BEREICH ///////// */
+.ÜberUns_Section {
+    padding: 100px 10%;
+    background: linear-gradient(180deg, #111 0%, #0c0c0c 100%);
+}
+
+/* Container */
+.ÜberUns_Container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Überschrift */
+.ÜberUns_Container h2 {
+    display: inline-block;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Rote Akzent-Linie wie bei Slider */
+.ÜberUns_Container h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #e63946;
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* Text */
+.ÜberUnsText {
+    margin-top: 25px;
+    color: #bbb;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ÜberUns_Container h2 {
+        font-size: 32px;
+    }
+
+    .ÜberUnsText {
+        font-size: 16px;
+    }
+}
+
+/* ///////// GALERIE BEREICH ///////// */
+.slider {
+    width: 100%;
+    padding: 80px 10%;
+    background: #111; /* passt zu restlichem Layout */
+}
+
+.slider > div {
+    max-width: 1200px;
+    margin: 0 auto;          /* GANZ WICHTIG: zentriert alles */
+    text-align: center;      /* Galerie mittig */
+}
+
+/* Überschrift */
+.slider h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.slider h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #e63946;
+    margin: 15px auto 0;     /* rote Linie mittig */
+    border-radius: 2px;
+}
+
+/* Slider Box */
+.slides {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+/* Bilder */
+.slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+/* Aktives Bild */
+.slides img.active {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .slides {
+        height: 260px;
+    }
+
+    .slider h2 {
+        font-size: 32px;
+    }
+}
+
+/* ///////// TEAM BEREICH ///////// */
+.team {
+    padding: 100px 10%;
+    background: linear-gradient(180deg, #111 0%, #0c0c0c 100%);
+}
+
+.teamcontainer {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Überschrift */
+.team .überschrift {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.team .überschrift h2 {
+    display: inline-block;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.team .überschrift span {
+    font-size: 40px;
+    font-weight: bold;
+    color: #e63946;
+    margin-left: 10px;
+}
+
+.team .überschrift p {
+    margin-top: 15px;
+    color: #bbb;
+    font-size: 18px;
+}
+
+/* Trainer Grid */
+.linksTrainer,
+.mitteTrainer,
+.rechtsTrainer {
+    display: inline-block;
+    width: 32%;
+    vertical-align: top;
+}
+
+@media (max-width: 900px) {
+    .linksTrainer,
+    .mitteTrainer,
+    .rechtsTrainer {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+/* Trainer Cards */
+.trainerEINS,
+.trainerZWEI,
+.trainerDREI {
+    background: #1a1a1a;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-height: 430px;
+
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.trainerEINS:hover,
+.trainerZWEI:hover,
+.trainerDREI:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* Trainer Bilder */
+.trainerEINS img,
+.trainerZWEI img,
+.trainerDREI img {
+    width: 100%;
+    max-width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 3px solid #e63946;
+}
+.trainerZWEI img {
+    object-position: center top; /* Gesicht nach oben holen */
+}
+
+/* Trainer Text */
+.trainerEINS h3,
+.trainerZWEI h3,
+.trainerDREI h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.trainerEINS p,
+.trainerZWEI p,
+.trainerDREI p {
+    margin-top: auto;
+    padding-top: 10px;
+    color: #ccc;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+/* ///////// KUNDENBEWERTUNGS BEREICH ///////// */
+.bewertungSection_class {
+    padding: 100px 10%;
+    background: linear-gradient(180deg, #0c0c0c 0%, #111 100%);
+}
+
+/* Container */
+.bewertungSection_Container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.bewertungSection_header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.bewertungSection_header h2 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.bewertungSection_header span {
+    color: #e63946;
+    margin-left: 8px;
+}
+
+.bewertungSection_header p {
+    margin-top: 15px;
+    color: #bbb;
+    font-size: 18px;
+}
+
+/*Bewertung  */
+.KundenBewertungContainer {
+    background: #1a1a1a;
+    border-radius: 15px;
+    padding: 30px 25px;
+    margin-bottom: 30px;
+
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.KundenBewertungContainer:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* Kunde Kopfbereich */
+.KundenBewertung_kunde_1 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.KundenBewertung_kunde_1 img {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e63946;
+}
+
+/* Name + Sterne */
+.KundenBewertung_Daten h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.sternenBewertung {
+    color: #e63946;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+/* Bewertungstext */
+.KundenBewertung_Inhalt {
+    color: #ccc;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Layout Grid für Desktop*/
+@media (min-width: 900px) {
+    .bewertungSection_Container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .bewertungSection_header {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Optimierung Mobil */
+@media (max-width: 600px) {
+    .bewertungSection_header h2 {
+        font-size: 32px;
+    }
+
+    .KundenBewertungContainer {
+        padding: 25px 20px;
+    }
+
+    .KundenBewertung_Inhalt {
+        font-size: 15px;
+    }
+}
+
+
+/* ///////// PREIS BEREICH ///////// */
+#preise {
+    padding: 100px 10%;
+    background: linear-gradient(180deg, #111 0%, #0c0c0c 100%);
+}
+
+/* Headline IMMER zentriert */
+.preishead {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.preishead h2 {
+    font-size: 40px;
+    color: #e63946;
+    margin-bottom: 10px;
+}
+
+.preishead p {
+    font-size: 18px;
+    color: #bbb;
+}
+
+/* Grid NUR für Preisboxen */
+#preise > .standartPreis,
+#preise > .premiumPreis,
+#preise > .ultimativPreis {
+    display: none; /* Sicherheit: wird unten neu gesetzt */
+}
+
+/* Wrapper simulieren mit Grid */
+#preise {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+/* Preis-Grid */
+.standartPreis,
+.premiumPreis,
+.ultimativPreis {
+    background: #1a1a1a;
+    border-radius: 18px;
+    padding: 35px 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Container für Karten */
+#preise .standartPreis,
+#preise .premiumPreis,
+#preise .ultimativPreis {
+    display: block;
+}
+
+/* Preis Karten nebeneinander */
+#preise {
+    grid-template-columns: 1fr;
+}
+
+#preise > .preishead {
+    grid-column: 1 / -1;
+}
+
+/* Grid für Karten */
+#preise::after {
+    content: "";
+    display: block;
+}
+
+#preise .standartPreis,
+#preise .premiumPreis,
+#preise .ultimativPreis {
+    width: 100%;
+}
+
+/* Desktop Layout */
+@media (min-width: 900px) {
+    #preise {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 30px;
+        row-gap: 0;
+    }
+
+    .preishead {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Hover */
+.standartPreis:hover,
+.premiumPreis:hover,
+.ultimativPreis:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+}
+
+/* Header */
+.standartPreisHeader,
+.premiumPreisHeader,
+.ultimativPreisHeader {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Premium hervorheben */
+.premiumPreis {
+    border: 2px solid #e63946;
+    transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+    .premiumPreis {
+        transform: scale(1);
+    }
+}
+
+/* Preis */
+.preis {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.währung {
+    font-size: 20px;
+    margin-left: 5px;
+    vertical-align: top;
+}
+
+.zeit {
+    display: block;
+    font-size: 14px;
+    color: #bbb;
+    margin-top: 5px;
+}
+
+/* Inhalt */
+.inhaltPreis {
+    margin-top: 30px;
+    flex-grow: 1;
+}
+
+.inhaltPreis ul {
+    list-style: none;
+}
+
+.inhaltPreis li {
+    margin: 12px 0;
+    color: #ccc;
+    padding-left: 22px;
+    position: relative;
+    list-style: none;
+}
+
+.inhaltPreis li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #e63946;
+}
+
+/* Laufzeit */
+.ablaufszeitPreis {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* Button */
+.preisWahl {
+    margin-top: 30px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #e63946;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.preisWahl:hover {
+    background: #ff4d5a;
+    transform: scale(1.05);
+}
+
+
+/* Damit Preisüberschrift mittig ist*/
+.standartPreisHeader,
+.premiumPreisHeader,
+.ultimativPreisHeader {
+    text-align: center;
+}
+
+.standartPreis > div:nth-of-type(2),
+.premiumPreis > div:nth-of-type(2),
+.ultimativPreis > div:nth-of-type(2) {
+    text-align: center;
+}
+
+/* Preis Button in Mitte */
+.preisWahl {
+    display: block;
+    margin: 30px auto 0;
+}
+
+
+/* ///////// KURS BEREICH ///////// */
+#kurse {
+    padding: 100px 10%;
+    background: linear-gradient(180deg, #0c0c0c 0%, #111 100%);
+}
+
+/* Headline */
+.kursehead {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.kursehead h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #e63946;
+}
+
+.kursehead p {
+    font-size: 18px;
+    color: #bbb;
+}
+
+/* Grid */
+.ersteReihe {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .ersteReihe {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .ersteReihe {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Kurs Cards */
+.kursEinsVonVier,
+.kursZweiVonVier,
+.kursDreiVonVier,
+.kursVierVonVier {
+    background: #1a1a1a;
+    border-radius: 15px;
+    padding: 30px 25px;
+    min-height: 260px;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Akzent-Linie */
+.kursEinsVonVier::before,
+.kursZweiVonVier::before,
+.kursDreiVonVier::before,
+.kursVierVonVier::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: #e63946;
+}
+
+/* Hover */
+.kursEinsVonVier:hover,
+.kursZweiVonVier:hover,
+.kursDreiVonVier:hover,
+.kursVierVonVier:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* Kurs Text */
+.kursehead + .ersteReihe p {
+    margin-bottom: 10px;
+}
+
+.titel {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.inhalt {
+    color: #ccc;
+    font-size: 16px;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+/* Meta Infos */
+.teilnehmerAnzahl,
+.anzahlTermine {
+    font-size: 14px;
+    color: #aaa;
+    margin-top: 5px;
+}
+
+
+
+
+/*/////////////////////////////////////*/
+/* ///////// FOOTER BEREICH ///////// */
+footer {
+    background: #000;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: #aaa;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}

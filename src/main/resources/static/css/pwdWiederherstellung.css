@@ -1,0 +1,136 @@
+/* Allgemeine Body-Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #121212;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* für vertikale Zentrierung */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Passwort-Wiederherstellung Container zentriert */
+.PasswortWIEDERHERSTELLUNG_Container {
+    width: 100%;
+    max-width: 400px;
+    padding: 25px 30px;
+    background: rgba(0,0,0,0.85);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Überschrift */
+.PasswortWIEDERHERSTELLUNG_Überschrift {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.PasswortWIEDERHERSTELLUNG_Überschrift h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ffffff; /* POWER weiß */
+    margin: 0;
+}
+
+.PasswortWIEDERHERSTELLUNG_Überschrift h2 span {
+    color: #e63946; /* FORGE rot */
+}
+
+.PasswortWIEDERHERSTELLUNG_Überschrift p {
+    font-size: 18px;
+    color: #ccc;
+    margin: 8px 0 0 0;
+}
+
+/* Formular */
+.PasswortWIEDERHERSTELLUNG_Eingabe {
+    width: 100%;
+}
+
+.PasswortWIEDERHERSTELLUNG_Eingabe form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+.PasswortWIEDERHERSTELLUNG_Eingabe label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+/* Inputs */
+.PasswortWIEDERHERSTELLUNG_Eingabe input {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 18px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #000;
+    background: #fff;
+    box-sizing: border-box;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.PasswortWIEDERHERSTELLUNG_Eingabe input:focus {
+    border-color: #e63946;
+    box-shadow: 0 0 5px #e63946;
+    outline: none;
+}
+
+/* Button */
+.PasswortWIEDERHERSTELLUNG_Eingabe button {
+    padding: 12px 0;
+    background: #e63946;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.PasswortWIEDERHERSTELLUNG_Eingabe button:hover {
+    background: #ff4d5a;
+}
+
+/* Responsive Anpassung */
+@media (max-width: 600px) {
+    body {
+        padding: 20px;
+        height: auto; /* für kleinere Screens */
+        display: block;
+    }
+
+    .PasswortWIEDERHERSTELLUNG_Container {
+        padding: 20px;
+        margin: 40px auto;
+    }
+
+    .PasswortWIEDERHERSTELLUNG_Überschrift h2 {
+        font-size: 28px;
+    }
+
+    .PasswortWIEDERHERSTELLUNG_Überschrift p {
+        font-size: 16px;
+    }
+
+    .PasswortWIEDERHERSTELLUNG_Eingabe input {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+
+    .PasswortWIEDERHERSTELLUNG_Eingabe button {
+        font-size: 14px;
+        padding: 10px 0;
+    }
+}

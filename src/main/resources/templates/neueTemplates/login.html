@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerForge - Anmeldung</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <div>
+        <div class="ueberschrift">
+            <h2>PowerForge</h2>
+            <p>Login</p>
+        </div>
+
+
+        <form method="POST" action="" th:action="@{/eingeloggtTemplate}">
+            <!--Benutzereingabe mit Passwort-->
+            <div class="benutzereingaben">
+                    <label>Benutzername</label>
+                    <input type="text" class="benutzername_login" id="benutzername_login" name="username" placeholder="Email" required><br><br>
+
+                    <label>Passwort</label>
+                    <input type="password" class="passwort_login" id="passwort_login" name="password" placeholder="Passwort" required> <br><br>
+
+                    <button type="submit">Anmelden</button>
+
+                <div class="register_link">
+                    <p>Passwort vergessen?
+                        <a href="passwortVergabe.html"> Wiederherstellen</a>
+                    </p>
+
+                    <!--Falls kein Benutzer, registrieren-->
+                    <p>Noch nicht Registriert?
+                        <a href="register.html"> Registieren</a>
+                    </p>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+</body>
+</html>
