@@ -15,38 +15,38 @@ die Mitgliedschaft ausgewählt wurde-->
         </div>
 
         <!-- vielleicht kann ich mit JavaScript Werte übergeben -->
-        <form method="post" action="#" th:action="@{/eingabeformular}">
+        <form method="post" action="#" th:action="@{/eingabeTemplate}">
 
             <div class="form-container">
                 <h2>Personendaten</h2>
 
-                <label>Vorname</label>
+                <label for="vorname">Vorname</label>
                 <input type="text" name="vorname" id="vorname" required>
 
-                <label>Nachname</label>
+                <label for="nachname">Nachname</label>
                 <input type="text" name="nachname" id="nachname" required>
 
-                <label>Geburtsdatum</label>
+                <label for="gebDatum">Geburtsdatum</label>
                 <input type="date" name="gebDatum" id="gebDatum" required>
 
-                <label>Telefonnummer</label>
+                <label for="tel">Telefonnummer</label>
                 <input type="text" name="tel" id="tel" required>
 
                 <h2>Adresse</h2>
 
-                <label>Strasse</label>
+                <label for="strasse">Strasse</label>
                 <input type="text" name="strasse" id="strasse" required>
 
-                <label>Strassennummer</label>
+                <label for="nummer">Strassennummer</label>
                 <input type="text" name="nummer" id="nummer" required>
 
-                <label>Postleitzahl</label>
+                <label for="plz">Postleitzahl</label>
                 <input type="text" name="plz" id="plz" required>
 
-                <label>Ort</label>
+                <label for="ort">Ort</label>
                 <input type="text" name="ort" id="ort" required>
 
-                <label>Land</label>
+                <label for="select_land">Land</label>
                 <select name="land" id="select_land">
                     <option value="DE" id="de">Deutschland</option>
                     <option value="AT" id="at">Österreich</option>
@@ -55,17 +55,19 @@ die Mitgliedschaft ausgewählt wurde-->
 
                 <h2 id="überschrift">Account erstellen</h2>
 
-                <label>Benutzername</label>
+                <label for="benutzer">Benutzername</label>
                 <input  type="text"  name="username" id="benutzer" placeholder="Email" required>
 
-                <label>Passwort</label>
-                <input type="password" name="password" required>
+                <label for="password">Passwort</label>
+                <input type="password" name="password" id="password" required>
 
-                <label>Passwort bestätigen</label>
-                <input type="password" name="password1" required>
+                <label for="password1">Passwort bestätigen</label>
+                <input type="password" name="password1" id="password1" required>
 
 
                 <button type="submit">Registrieren</button>
+                <br>
+                <div th:text="${issue} ?: ''"></div>
             </div>
         </form>
     </div>

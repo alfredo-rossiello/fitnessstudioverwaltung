@@ -4,6 +4,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
+// ich bin noch nicht zufrieden mit der Hashing Methode!
+// es wird noch nicht gesaltet aber vielleicht gibt es auch einen Algorithmus
+// der automatisch einen Salt erstellt!
 public class PwdHash {
     public static String hashPassword(String password) {
         try {

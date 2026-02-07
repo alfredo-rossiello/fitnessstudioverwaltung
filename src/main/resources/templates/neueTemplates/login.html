@@ -14,20 +14,20 @@
         </div>
 
 
-        <form method="POST" action="" th:action="@{/eingeloggtTemplate}">
+        <form method="POST" action="" th:action="@{/anmeldeTemplate}">
             <!--Benutzereingabe mit Passwort-->
             <div class="benutzereingaben">
-                    <label>Benutzername</label>
+                    <label for="benutzername_login">Benutzername</label>
                     <input type="text" class="benutzername_login" id="benutzername_login" name="username" placeholder="Email" required><br><br>
 
-                    <label>Passwort</label>
+                    <label for="passwort_login">Passwort</label>
                     <input type="password" class="passwort_login" id="passwort_login" name="password" placeholder="Passwort" required> <br><br>
 
                     <button type="submit">Anmelden</button>
 
                 <div class="register_link">
                     <p>Passwort vergessen?
-                        <a href="passwortVergabe.html"> Wiederherstellen</a>
+                        <a href="emailVersendenZuPwdVergabe.html"> Wiederherstellen</a>
                     </p>
 
                     <!--Falls kein Benutzer, registrieren-->
@@ -35,6 +35,7 @@
                         <a href="register.html"> Registieren</a>
                     </p>
                 </div>
+                <div th:text="${error} ?: ''"></div>
             </div>
         </form>
         

@@ -3,7 +3,6 @@ package org.example.fitnessstudioverwaltung.Repository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
-import org.example.fitnessstudioverwaltung.Model.BaseType;
 import org.example.fitnessstudioverwaltung.Model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

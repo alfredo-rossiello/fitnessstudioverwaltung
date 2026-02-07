@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PowerForge - Dein Fitnessstudio</title>
-    <link rel="stylesheet" href="../css/startseite.css">
+    <link rel="stylesheet" href="/css/startseite.css">
 </head>
 <body>
 
@@ -21,12 +21,14 @@
                 <li><a href="#bewertung">Bewertung</a></li>
                 <li><a href="#preise">Preise</a></li>
                 <li><a href="#kurse">Kurse</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
+                <!--<li><a href="#kontakt">Kontakt</a></li>-->
             </ul>
 
             <div class="Login_Mitglied_Container">
-                <a href="REGI.html" class="mitglied_werden">Mitglied werden</a>
-                <a href="LOGIN.html" class="anmelden">Login</a>
+                <!-- mann muss zuerst eine Mitglieschaft auswählen bevor man sich registrieren kann! -->
+                <!-- also eher auf Mitgliedschaft.html zeigen-->
+                <a href="register.html" class="mitglied_werden">Mitglied werden</a>
+                <a href="login.html" class="anmelden">Login</a>
             </div>
             
         </nav>
@@ -65,9 +67,9 @@
             <div>
                 <h2>Galerie</h2>
                 <div class="slides">
-                    <img src="../images/1.jpg" class="active">
-                    <img src="../images/2.jpg">
-                    <img src="../images/3.jpg">
+                    <img src="/images/1.jpg" class="active" alt="">
+                    <img src="/images/2.jpg" alt="">
+                    <img src="/images/3.jpg" alt="">
                 </div>
                 <!--
                 <div>
@@ -90,7 +92,7 @@
                 <!--Erster Trainer-->
                 <div class="linksTrainer">
                     <div class="trainerEINS">
-                        <img src="../images/Trainer/trainerEINS.jpg">
+                        <img src="/images/Trainer/trainerEINS.jpg" alt="beispiel trainer">
                         <h3>Alexander S.</h3>
                         <p>Erfahrener MMA Kämpfer seit 20 Jahren</p>
                     </div>
@@ -98,7 +100,7 @@
                 <!--Zweiter Trainer-->
                 <div class="mitteTrainer">
                     <div class="trainerZWEI">
-                        <img src="../images/Trainer/trainerZWEI.jpg">
+                        <img src="/images/Trainer/trainerZWEI.jpg" alt="beispiel trainer">
                         <h3>Benedikt B.</h3>
                         <p>Fußballspieler und Kickboxer</p>
                     </div>
@@ -106,7 +108,7 @@
                 <!--Dritte Trainer Trainer-->
                 <div class="rechtsTrainer">
                     <div class="trainerDREI">
-                        <img src="../images/Trainer/trainerDREI.jpg">
+                        <img src="/images/Trainer/trainerDREI.jpg" alt="trainer.jpg">
                         <h3>Alfredo T.</h3>
                         <p>Bayrischer Boxmeister</p>
                     </div>
@@ -126,9 +128,9 @@
                 <!-- Erste Kunden Bewertung aufbau-->
                 <div class="KundenBewertungContainer">
                     <div class="KundenBewertung_kunde_1">
-                        <img src="../images/KundenBilder/KundenBild.png">
-                        <div class="KundenBewertung_Daten" id="KundenBewertung_Daten">
-                            <h3 id="KundenName">Rudi Göffel</h3>
+                        <img src="/images/KundenBilder/KundenBild.png" alt="kundenbilder.jpg">
+                        <div class="KundenBewertung_Daten"><!--id="KundenBewertung_Daten">-->
+                            <h3><!--id="KundenName"-->Rudi Göffel</h3>
                             <div class="sternenBewertung">★★★★★</div>
                         </div>
                     </div>
@@ -138,9 +140,9 @@
                 <!-- Zweite Kunden Bewertung aufbau-->
                 <div class="KundenBewertungContainer">
                     <div class="KundenBewertung_kunde_1">
-                        <img src="../images/KundenBilder/KundenBild.png">
-                        <div class="KundenBewertung_Daten" id="KundenBewertung_Daten">
-                            <h3 id="KundenName">Max Ernst</h3>
+                        <img src="/images/KundenBilder/KundenBild.png" alt="kundenbilder.jpg">
+                        <div class="KundenBewertung_Daten"> <!--id="KundenBewertung_Daten"-->
+                            <h3><!--id="KundenName"-->Max Ernst</h3>
                             <div class="sternenBewertung">★★★★★</div>
                         </div>
                     </div>
@@ -150,9 +152,9 @@
                 <!-- Dritte Kunden Bewertung aufbau-->
                 <div class="KundenBewertungContainer">
                     <div class="KundenBewertung_kunde_1">
-                        <img src="../images/KundenBilder/KundenBild.png">
-                        <div class="KundenBewertung_Daten" id="KundenBewertung_Daten">
-                            <h3 id="KundenName">Tobias Zack</h3>
+                        <img src="/images/KundenBilder/KundenBild.png" alt="kundenbilder.jpg">
+                        <div class="KundenBewertung_Daten"> <!--id="KundenBewertung_Daten"-->
+                            <h3><!--id="KundenName"-->Tobias Zack</h3>
                             <div class="sternenBewertung">★★★★★</div>
                         </div>
                     </div>
@@ -162,9 +164,9 @@
                 <!-- Vierte Kunden Bewertung aufbau-->
                 <div class="KundenBewertungContainer">
                     <div class="KundenBewertung_kunde_1">
-                        <img src="../images/KundenBilder/KundenBild.png" >
-                        <div class="KundenBewertung_Daten" id="KundenBewertung_Daten">
-                            <h3 id="KundenName">Vanessa Simen</h3>
+                        <img src="/images/KundenBilder/KundenBild.png" alt="kundenbilder.jpg">
+                        <div class="KundenBewertung_Daten"> <!--id="KundenBewertung_Daten"-->
+                            <h3><!--id="KundenName"-->Vanessa Simen</h3>
                             <div class="sternenBewertung">★★★★★</div>
                         </div>
                     </div>
@@ -248,7 +250,7 @@
             <div class="kursehead">
                 <h2>Unsere Kurse</h2>
                 <p>Immer wieder erstellen unsere Trainer neue Kurse</p>
-            </div class="kursBereich_Header" id="kursBereich_Header_ID">
+            </div> <!--class="kursBereich_Header" id="kursBereich_Header_ID"-->
 
             <!-- Kurs Container für Inhalt-->
             <div class="ersteReihe" id="kursVorschau_Container">
@@ -305,6 +307,6 @@
 
 
     <!-- JS Einbindung-->
-    <script src="../js/startseite.js"></script>
+    <script src="/js/startseite.js"></script>
 </body>
 </html>

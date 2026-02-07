@@ -1,10 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 /* Allgemeine Body-Styles */
 body {
     font-family: 'Arial', sans-serif;
     background: #121212;
     color: #fff;
-    margin: 0;
-    padding: 0;
     height: 100vh; /* für vertikale Zentrierung */
     display: flex;
     justify-content: center;
@@ -13,7 +16,7 @@ body {
 }
 
 /* Passwort-Wiederherstellung Container zentriert */
-.PasswortWIEDERHERSTELLUNG_Container {
+#benutzereingabe_container {
     width: 100%;
     max-width: 400px;
     padding: 25px 30px;
@@ -26,40 +29,40 @@ body {
 }
 
 /* Überschrift */
-.PasswortWIEDERHERSTELLUNG_Überschrift {
+#main_ueberschrift {
     text-align: center;
     margin-bottom: 25px;
 }
 
-.PasswortWIEDERHERSTELLUNG_Überschrift h2 {
+#main_ueberschrift h2 {
     font-size: 36px;
     font-weight: bold;
     color: #ffffff; /* POWER weiß */
     margin: 0;
 }
 
-.PasswortWIEDERHERSTELLUNG_Überschrift h2 span {
+#main_ueberschrift h2 span {
     color: #e63946; /* FORGE rot */
 }
 
-.PasswortWIEDERHERSTELLUNG_Überschrift p {
+#main_ueberschrift p {
     font-size: 18px;
     color: #ccc;
     margin: 8px 0 0 0;
 }
 
 /* Formular */
-.PasswortWIEDERHERSTELLUNG_Eingabe {
+#benutzereingabe {
     width: 100%;
 }
 
-.PasswortWIEDERHERSTELLUNG_Eingabe form {
+#benutzereingabe form {
     display: flex;
     flex-direction: column;
 }
 
 /* Labels */
-.PasswortWIEDERHERSTELLUNG_Eingabe label {
+#benutzereingabe label {
     display: block;
     font-weight: bold;
     margin-bottom: 6px;
@@ -67,7 +70,7 @@ body {
 }
 
 /* Inputs */
-.PasswortWIEDERHERSTELLUNG_Eingabe input {
+#benutzereingabe input {
     width: 100%;
     padding: 10px 12px;
     margin-bottom: 18px;
@@ -80,14 +83,14 @@ body {
     transition: border 0.3s, box-shadow 0.3s;
 }
 
-.PasswortWIEDERHERSTELLUNG_Eingabe input:focus {
+#benutzereingabe input:focus {
     border-color: #e63946;
     box-shadow: 0 0 5px #e63946;
     outline: none;
 }
 
 /* Button */
-.PasswortWIEDERHERSTELLUNG_Eingabe button {
+#benutzereingabe button {
     padding: 12px 0;
     background: #e63946;
     color: #fff;
@@ -99,7 +102,7 @@ body {
     transition: background 0.3s;
 }
 
-.PasswortWIEDERHERSTELLUNG_Eingabe button:hover {
+#benutzereingabe button:hover {
     background: #ff4d5a;
 }
 
@@ -111,25 +114,25 @@ body {
         display: block;
     }
 
-    .PasswortWIEDERHERSTELLUNG_Container {
+    #benutzereingabe_container {
         padding: 20px;
         margin: 40px auto;
     }
 
-    .PasswortWIEDERHERSTELLUNG_Überschrift h2 {
+    #main_ueberschrift h2 {
         font-size: 28px;
     }
 
-    .PasswortWIEDERHERSTELLUNG_Überschrift p {
+    #main_ueberschrift p {
         font-size: 16px;
     }
 
-    .PasswortWIEDERHERSTELLUNG_Eingabe input {
+    #benutzereingabe input {
         font-size: 13px;
         padding: 8px 10px;
     }
 
-    .PasswortWIEDERHERSTELLUNG_Eingabe button {
+    #benutzereingabe button {
         font-size: 14px;
         padding: 10px 0;
     }

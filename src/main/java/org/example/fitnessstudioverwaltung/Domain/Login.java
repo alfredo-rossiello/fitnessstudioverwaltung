@@ -1,6 +1,7 @@
 package org.example.fitnessstudioverwaltung.Domain;
 
 import org.example.fitnessstudioverwaltung.Helper.Alter;
+import org.example.fitnessstudioverwaltung.Helper.PwdCheck;
 import org.example.fitnessstudioverwaltung.Helper.PwdHash;
 
 public class Login {
@@ -106,7 +107,7 @@ public class Login {
     }
 
     public String getPassword() {
-        return PwdHash.hashPassword(password);
+        return password;
     }
 
     public void setPassword(String password) {
@@ -114,7 +115,7 @@ public class Login {
     }
 
     public String getPassword1() {
-        return PwdHash.hashPassword(password1);
+        return password1;
     }
 
     public void setPassword1(String password1) {
@@ -124,5 +125,25 @@ public class Login {
     // Alters überprüfung
     public boolean isAdult() {
         return Alter.isAdult(getGebDatum());
+    }
+
+    // überprüfung ob alle Werte gesetzt wurden
+    public boolean isNotNull() {
+        return getVorname() != null && getNachname() != null && getGebDatum() != null
+                && getStrasse() != null && getNummer() != null && getOrt() != null
+                && getLand() != null && getPlz() != null && getTel() != null
+                && getUsername() != null && getPassword() != null;
+    }
+
+    // überprüfung ob Passwort valide ist muss aber noch mit eingebunden werden
+    // worauf ich gerade aber noch keine wirkliche Lust habe
+    public boolean pwdIsValid() {
+        return PwdCheck.pwdValidLength(getPassword())
+                && PwdCheck.pwdHasUpperCase(getPassword())
+                && PwdCheck.pwdHasNumber(getPassword());
+    }
+
+    public boolean pwdEqualsPwd1() {
+        return getPassword().equals(getPassword1());
     }
 }
