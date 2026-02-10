@@ -11,7 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 // fitnessstudioverwaltung
-// 1. Werte sollen zurück in inputfelder geschrieben werden -> optional (nicht sehr wichtig)
+// 1. Werte sollen zurück in inputfelder geschrieben werden -> optional ( nicht sehr wichtig )
 
 // 2. salt in Tabelle speichern oder einen Algorithmus nehmen der automatisch einen
 // salt generiert den man nicht extra in der Datenbank speichert
@@ -35,28 +35,6 @@ public class LoginController{
         // account wird nur nach bestätigung der Identität (vorzeigen des Ausweises und validierung der Email aktiviert
         return "neueTemplates/register";
     }
-
-
-    /*
-    // die übergebenen Werte sind nicht mehr gespeichert und deswegen gibt es eine nullpointer exeption
-    // in der Methode werden alle anderen Fehlermeldungen ignoriert wenn eine zutrifft
-    // ausgeben der Fehlermeldung
-    @GetMapping("/errorRegisterTemplate")
-    public String redirectedRegisterTemplate(@ModelAttribute Login login, Model model){
-
-        // vielleicht muss ich hier eine session setzten
-        if (loginService.usernameExists(login.getUsername())) {
-            model.addAttribute("issue", "Wähle einen anderen usernamen!");
-        }
-
-        if (!login.pwdEqualsPwd1()) {
-            model.addAttribute("issue", "Deine Passwörter stimmen nicht überein!");
-        }
-
-        // hier dann noch eine überprüfung ob das Passwort
-        // auch den vorraussetzungen entsprochen hat
-        return "neueTemplates/register";
-    }*/
 
 
     @RequestMapping(path = "/eingabeTemplate", method = {RequestMethod.GET, RequestMethod.POST})
@@ -116,4 +94,28 @@ public class LoginController{
             return "redirect:/errorLoginTemplate";
         }
     }
+
+    // überflüssiger code den man vielleicht noch nutzen kann:
+
+    /*
+    // die übergebenen Werte sind nicht mehr gespeichert und deswegen gibt es eine nullpointer exeption
+    // in der Methode werden alle anderen Fehlermeldungen ignoriert wenn eine zutrifft
+    // ausgeben der Fehlermeldung
+    @GetMapping("/errorRegisterTemplate")
+    public String redirectedRegisterTemplate(@ModelAttribute Login login, Model model){
+
+        // vielleicht muss ich hier eine session setzten
+        if (loginService.usernameExists(login.getUsername())) {
+            model.addAttribute("issue", "Wähle einen anderen usernamen!");
+        }
+
+        if (!login.pwdEqualsPwd1()) {
+            model.addAttribute("issue", "Deine Passwörter stimmen nicht überein!");
+        }
+
+        // hier dann noch eine überprüfung ob das Passwort
+        // auch den vorraussetzungen entsprochen hat
+        return "neueTemplates/register";
+    }*/
+
 }

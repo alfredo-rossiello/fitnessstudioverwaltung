@@ -14,13 +14,15 @@
         </div>
 
         <div id="benutzereingabe">
-            <form action="" method="post">
-                <label for="email">E-Mail</label> <br>
-                <input type="text" id="email" name="username" placeholder="E-Mail" required><br><br>
+            <form th:action="@{/nutzerVerifizierung}" method="POST">
+                <label for="email">E-Mail</label>
+                <input type="text" id="email" name="username" placeholder="E-Mail">
 
                 <button type="submit">Passwort wiederherstellen</button>
             </form>
         </div>
+
+        <div th:text="${message ?: ''}"></div>
 
     </div>
 </body>

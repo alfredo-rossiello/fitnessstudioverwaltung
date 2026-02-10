@@ -14,7 +14,7 @@
         </div>
 
 
-        <form method="POST" action="" th:action="@{/anmeldeTemplate}">
+        <form method="POST" th:action="@{/anmeldeTemplate}">
             <!--Benutzereingabe mit Passwort-->
             <div class="benutzereingaben">
                     <label for="benutzername_login">Benutzername</label>
@@ -27,12 +27,12 @@
 
                 <div class="register_link">
                     <p>Passwort vergessen?
-                        <a href="emailVersendenZuPwdVergabe.html"> Wiederherstellen</a>
+                        <a th:href="@{/aktuallisierungTemplate}"> Wiederherstellen</a>
                     </p>
 
-                    <!--Falls kein Benutzer, registrieren-->
+                    <!--Falls kein Benutzer, registrieren, erst Auswahl von Mitgliedschaft-->
                     <p>Noch nicht Registriert?
-                        <a href="register.html"> Registieren</a>
+                        <a th:href="@{/registerTemplate}"> Registieren</a>
                     </p>
                 </div>
                 <div th:text="${error} ?: ''"></div>

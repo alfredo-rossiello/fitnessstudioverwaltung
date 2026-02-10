@@ -1,7 +1,7 @@
 <!-- noch kein JavaScript mit eingebunden, sollte auch erst ausgeführt werden können wenn
 die Mitgliedschaft ausgewählt wurde-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@ die Mitgliedschaft ausgewählt wurde-->
         </div>
 
         <!-- vielleicht kann ich mit JavaScript Werte übergeben -->
-        <form method="post" action="#" th:action="@{/eingabeTemplate}">
+        <form method="post" th:action="@{/eingabeTemplate}">
 
             <div class="form-container">
                 <h2>Personendaten</h2>
@@ -67,7 +67,7 @@ die Mitgliedschaft ausgewählt wurde-->
 
                 <button type="submit">Registrieren</button>
                 <br>
-                <div th:text="${issue} ?: ''"></div>
+                <!--<div th:text="${issue} ?: ''"></div>-->
             </div>
         </form>
     </div>

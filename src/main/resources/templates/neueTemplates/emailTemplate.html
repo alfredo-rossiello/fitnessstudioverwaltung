@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hallo <span th:text="${greeting}"></span>!</h1>
+    <p>Über diesen Link können Sie Ihr Passwort zurück setzten!</p>
+
+    <a th:href="@{/pwdAendernTemplate}">Bitte klicken Sie diesen Link</a>
+</body>
+</html>
