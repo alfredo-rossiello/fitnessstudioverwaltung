@@ -1,9 +1,9 @@
 package org.example.fitnessstudioverwaltung.Controller;
 
 import jakarta.mail.MessagingException;
-//import org.example.fitnessstudioverwaltung.Service.MailService;
 import org.example.fitnessstudioverwaltung.Service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSendException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -51,31 +51,32 @@ public class EmailController {
             RedirectAttributes redirectAttributes) {
 
         if (username != null) {
+            // emailService.sendSimpleEmail(username, "Passwort ändern", "Hallo Welt");
+
             try {
                 // 1. überprüfung ob der username existiert
                 if (emailService.userIsValid(username)) {
                     // 2. einfügen von username
                     String htmlBody = emailService.htmlBodyThWert(
-                            "src/main/resources/templates/neueTemplates/emailTemplate",
+                            "neueTemplates/emailTemplate",
                             username);
 
                     // 3. versenden der Email
                     emailService.sendHtmlEmail(username, "Passwort aendern", htmlBody);
 
+
                     // 4. Message wenn Email gefunden
-                    // model.addAttribute("message", "Die Email wurde erfolgreich versand!");
                     redirectAttributes.addFlashAttribute(
                             "message", "Die Email wurde erfolgreich versand!");
                 } else {
                     // 5. Message wenn Email nicht gefunden
-                    // model.addAttribute("message", "Der Username existiert nicht!");
                     redirectAttributes.addFlashAttribute(
                             "message", "Der Username existiert nicht!");
                 }
             } catch (MessagingException _) {
-                // model.addAttribute("message", "Das versenden der Email ist fehlgeschlagen!");
                 redirectAttributes.addFlashAttribute(
                         "message", "Das versenden der Email ist fehlgeschlagen!");
+            }  catch (MailSendException _) {
             }
         }
 
